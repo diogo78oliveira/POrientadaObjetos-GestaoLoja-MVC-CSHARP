@@ -18,11 +18,22 @@ namespace TP_POO.Controllers
         #endregion
 
         #region Methods
+
+        /// <summary>
+        /// Método para encontrar uma categoria através do seu ID
+        /// </summary>
+        /// <param name="id"></param>
+        /// <returns></returns>
         public Categoria findCategoriaById(int id)
         {
             return categorias.Find(c => c.IdCategoria == id);
         }
 
+        /// <summary>
+        /// Método para adicionar uma nova categoria
+        /// </summary>
+        /// <param name="novaCategoria"></param>
+        /// <returns></returns>
         public bool AdicionarCategoriaController(Categoria novaCategoria)
         {
             try
@@ -46,11 +57,20 @@ namespace TP_POO.Controllers
             }
         }
 
+        /// <summary>
+        /// Método para listar as categorias existentes
+        /// </summary>
+        /// <returns></returns>
         public List<Categoria> ListarCategoriasController()
         {
             return categorias;
         }
 
+        /// <summary>
+        /// Método para atualizar uma categoria
+        /// </summary>
+        /// <param name="categoriaAtualizada"></param>
+        /// <returns></returns>
         public bool AtualizarCategoriaController(Categoria categoriaAtualizada)
         {
             try
@@ -77,7 +97,11 @@ namespace TP_POO.Controllers
             }
         }
 
-
+        /// <summary>
+        /// Método para remover uma categoria
+        /// </summary>
+        /// <param name="id"></param>
+        /// <returns></returns>
         public bool RemoverCategoriaController(int id)
         {
             try
@@ -97,7 +121,6 @@ namespace TP_POO.Controllers
                 throw e;
             }
         }
-
 
         #endregion
     }

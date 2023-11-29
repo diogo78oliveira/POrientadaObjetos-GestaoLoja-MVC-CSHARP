@@ -16,8 +16,14 @@ class Program
 {
     static void Main(string[] args)
     {
+        #region Attributes
+
         CategoriaController categoriaController = new CategoriaController();
         CategoriaView categoriaView = new CategoriaView(categoriaController);
+
+        #endregion
+
+        #region Menu
 
         int op;
 
@@ -38,6 +44,7 @@ class Program
                 switch(op)
                 {
                     case 1:
+                        Console.Clear();
                         //produtoView.MenuProduto();
                         break;
                     case 2:
@@ -45,15 +52,19 @@ class Program
                         categoriaView.MenuCategoria();
                         break;
                     case 3:
+                        Console.Clear();
                         //marcaView.MenuMarca();
                         break;
                     case 4:
+                        Console.Clear();
                         //produtoView.MenuCliente();
                         break;
                     case 5:
+                        Console.Clear();
                         //colaboradorView.MenuColaborador();
                         break;
                     case 6:
+                        Console.Clear();
                         //encomendaView.MenuEncomenda();
                         break;
                     case 0:
@@ -69,5 +80,7 @@ class Program
                 Console.WriteLine("Opção inválida");
             }
         } while (op != 0);
+
+        #endregion
     }
 }

@@ -10,13 +10,24 @@ namespace TP_POO.Views
 {
     public class CategoriaView
     {
+        #region Attributes
+
         private CategoriaController categoriaController;
+
+        #endregion
+
+        #region Methods
+
+        #region Constructor
 
         public CategoriaView(CategoriaController controller)
         {
             categoriaController = controller;
         }
 
+        #endregion
+
+        #region Menu Categoria
         public void MenuCategoria()
         {
             int op;
@@ -70,6 +81,14 @@ namespace TP_POO.Views
                     break;
             }
         }
+
+        #endregion
+
+        #region Other Methods
+
+        /// <summary>
+        /// Método para adicionar uma nova categoria
+        /// </summary>
         private void AdicionarCategoriaView()
         {
             Console.WriteLine("Insira o ID da categoria: ");
@@ -97,8 +116,9 @@ namespace TP_POO.Views
             }
         }
 
-
-
+        /// <summary>
+        /// Método para listar as categorias existentes
+        /// </summary>
         private void VerCategoriasView()
         {
             var categorias = categoriaController.ListarCategoriasController();
@@ -113,7 +133,9 @@ namespace TP_POO.Views
             Console.WriteLine();
         }
 
-
+        /// <summary>
+        /// Método para atualizar uma categoria
+        /// </summary>
         private void AtualizarCategoriaView()
         {
             try
@@ -149,7 +171,9 @@ namespace TP_POO.Views
             }
         }
 
-
+        /// <summary>
+        /// Método para remover uma categoria
+        /// </summary>
         private void RemoverCategoriaView()
         {
             Console.Write("Digite o ID da categoria que deseja excluir: ");
@@ -167,5 +191,9 @@ namespace TP_POO.Views
                 Console.WriteLine("Categoria não encontrada.");
             }
         }
+
+        #endregion
+
+        #endregion
     }
 }
