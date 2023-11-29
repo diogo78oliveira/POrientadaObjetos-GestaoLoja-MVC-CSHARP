@@ -13,7 +13,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace E_Commerce
+namespace TP_POO.Models
 {
     public class Categoria
     {
@@ -34,7 +34,7 @@ namespace E_Commerce
         /// <param name="n"></param>
         public Categoria(int id, string n)
         {
-            idCategoria = id; 
+            idCategoria = id;
             nome = n;
         }
 
@@ -48,6 +48,7 @@ namespace E_Commerce
         public int IdCategoria
         {
             get { return idCategoria; }
+            set { idCategoria = value; }
         }
 
         /// <summary>
