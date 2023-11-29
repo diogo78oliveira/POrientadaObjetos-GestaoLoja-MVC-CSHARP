@@ -79,8 +79,7 @@ namespace TP_POO.Controllers
 
                 if (categoriaExistente != null)
                 {
-                    if (categorias.Any(c => c.IdCategoria != categoriaAtualizada.IdCategoria &&
-                                             c.Nome.Equals(categoriaAtualizada.Nome, StringComparison.OrdinalIgnoreCase)))
+                    if (categorias.Any(c => c.IdCategoria != categoriaAtualizada.IdCategoria && c.Nome.Equals(categoriaAtualizada.Nome, StringComparison.OrdinalIgnoreCase)))
                     {
                         return false;
                     }
