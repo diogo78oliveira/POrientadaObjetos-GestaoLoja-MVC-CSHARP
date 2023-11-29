@@ -12,13 +12,9 @@ using System;
 using System.Reflection;
 
 [assembly: System.Reflection.AssemblyCompanyAttribute("TP-POO")]
-[assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
+[assembly: System.Reflection.AssemblyConfigurationAttribute("Release")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-<<<<<<< HEAD
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+c12ea30511bae474d7f5c389349603f6eb84315c")]
-=======
 [assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0")]
->>>>>>> 1f30826b7e0264b99137e4200f1f48e85e0a29c8
 [assembly: System.Reflection.AssemblyProductAttribute("TP-POO")]
 [assembly: System.Reflection.AssemblyTitleAttribute("TP-POO")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]
