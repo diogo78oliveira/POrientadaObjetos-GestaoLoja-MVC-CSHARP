@@ -1,6 +1,8 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Net.Http.Headers;
+using System.Runtime.Serialization.Formatters.Binary;
 using System.Text;
 using System.Threading.Tasks;
 using TP_POO.Models;
@@ -21,35 +23,81 @@ namespace TP_POO.Controllers
             return categorias.Find(c => c.IdCategoria == id);
         }
 
-        public void AdicionarCategoria(Categoria categoria)
+        public bool AdicionarCategoriaController(Categoria novaCategoria)
         {
-            categoria.IdCategoria = categorias.Count + 1;
-            categorias.Add(categoria);
+            try
+            {
+                if (categorias.Any(c => c.IdCategoria == novaCategoria.IdCategoria))
+                {
+                    return false;
+                }
+
+                if (categorias.Any(c => c.Nome.Equals(novaCategoria.Nome, StringComparison.OrdinalIgnoreCase)))
+                {
+                    return false;
+                }
+
+                categorias.Add(novaCategoria);
+                return true;
+            }
+            catch (Exception e)
+            {
+                throw e;
+            }
         }
 
-        public List<Categoria> ListarCategorias()
+        public List<Categoria> ListarCategoriasController()
         {
             return categorias;
         }
 
-        public void AtualizarCategoria(Categoria categoriaAtualizada)
+        public bool AtualizarCategoriaController(Categoria categoriaAtualizada)
         {
-            Categoria categoriaExistente = findCategoriaById(categoriaAtualizada.IdCategoria);
-            if(categoriaExistente != null)
+            try
             {
-                categoriaExistente.Nome = categoriaAtualizada.Nome;
+                Categoria categoriaExistente = findCategoriaById(categoriaAtualizada.IdCategoria);
+
+                if (categoriaExistente != null)
+                {
+                    if (categorias.Any(c => c.IdCategoria != categoriaAtualizada.IdCategoria &&
+                                             c.Nome.Equals(categoriaAtualizada.Nome, StringComparison.OrdinalIgnoreCase)))
+                    {
+                        return false;
+                    }
+
+                    categoriaExistente.Nome = categoriaAtualizada.Nome;
+                    return true;
+                }
+
+                return false;
+            }
+            catch (Exception e)
+            {
+                throw e;
             }
         }
 
-        public void RemoverCategoria(int id)
-        {
-            Categoria categoriaExistente = findCategoriaById(id);
 
-            if( categoriaExistente != null )
+        public bool RemoverCategoriaController(int id)
+        {
+            try
             {
-                categorias.Remove(categoriaExistente);
+                Categoria categoriaExistente = findCategoriaById(id);
+
+                if (categoriaExistente != null)
+                {
+                    categorias.Remove(categoriaExistente);
+                    return true;
+                }
+
+                return false; 
+            }
+            catch (Exception e)
+            {
+                throw e;
             }
         }
+
 
         #endregion
     }

@@ -32,7 +32,7 @@ namespace TP_POO.Views
 
                 if (int.TryParse(Console.ReadLine(), out op))
                 {
-                    ExecutarEscolha(op);
+                    Opcao(op);
                 }
                 else
                 {
@@ -41,25 +41,25 @@ namespace TP_POO.Views
             } while (op != 5);
         }
 
-        private void ExecutarEscolha(int escolha)
+        private void Opcao(int op)
         {
-            switch (escolha)
+            switch (op)
             {
                 case 1:
                     Console.Clear();
-                    AdicionarCategoria();
+                    AdicionarCategoriaView();
                     break;
                 case 2:
                     Console.Clear();
-                    VerCategorias();
+                    VerCategoriasView();
                     break;
                 case 3:
                     Console.Clear();
-                    AtualizarCategoria();
+                    AtualizarCategoriaView();
                     break;
                 case 4:
                     Console.Clear();
-                    RemoverCategoria();
+                    RemoverCategoriaView();
                     break;
                 case 5:
                     Console.Clear();
@@ -70,21 +70,38 @@ namespace TP_POO.Views
                     break;
             }
         }
-
-        private void AdicionarCategoria()
+        private void AdicionarCategoriaView()
         {
-            Console.WriteLine("Insira o nome da categoria: ");
-            string nome = Console.ReadLine();
+            Console.WriteLine("Insira o ID da categoria: ");
+            if (int.TryParse(Console.ReadLine(), out int id))
+            {
+                Console.WriteLine("Insira o nome da categoria: ");
+                string nome = Console.ReadLine();
 
-            Categoria novaCategoria = new Categoria(0, nome);
-            categoriaController.AdicionarCategoria(novaCategoria);
+                Categoria novaCategoria = new Categoria(id, nome);
 
-            Console.WriteLine("Categoria adicionada com sucesso");
+                bool categoriaAdicionada = categoriaController.AdicionarCategoriaController(novaCategoria);
+
+                if (categoriaAdicionada)
+                {
+                    Console.WriteLine("Categoria adicionada com sucesso");
+                }
+                else
+                {
+                    Console.WriteLine("Categoria já existente ou ID duplicado");
+                }
+            }
+            else
+            {
+                Console.WriteLine("ID inválido");
+            }
         }
 
-        public void VerCategorias()
+
+
+        private void VerCategoriasView()
         {
-            var categorias = categoriaController.ListarCategorias();
+            var categorias = categoriaController.ListarCategoriasController();
 
             Console.WriteLine("Lista de categorias:\n");
 
@@ -97,30 +114,43 @@ namespace TP_POO.Views
         }
 
 
-        public void AtualizarCategoria()
+        private void AtualizarCategoriaView()
         {
-            Console.WriteLine("Insira o ID da categoria para atualizar: ");
-            int id = int.Parse(Console.ReadLine());
-            
-            Categoria categoriaExistente = categoriaController.findCategoriaById(id);
-
-            if (categoriaExistente != null)
+            try
             {
-                Console.WriteLine("Insira o novo nome da categoria: ");
-                string novoNome = Console.ReadLine();
+                Console.WriteLine("Insira o ID da categoria para atualizar: ");
+                int id = int.Parse(Console.ReadLine());
 
-                Categoria categoriaAtualizada = new Categoria(id, novoNome);
-                categoriaController.AtualizarCategoria(categoriaAtualizada);
+                Categoria categoriaExistente = categoriaController.findCategoriaById(id);
 
-                Console.WriteLine("Categoria atualizada");
+                if (categoriaExistente != null)
+                {
+                    Console.WriteLine("Insira o novo nome da categoria: ");
+                    string novoNome = Console.ReadLine();
+
+                    Categoria categoriaAtualizada = new Categoria(id, novoNome);
+                    if (categoriaController.AdicionarCategoriaController(categoriaAtualizada))
+                    {
+                        Console.WriteLine("Categoria atualizada com sucesso");
+                    }
+                    else
+                    {
+                        Console.WriteLine("Categoria já existente");
+                    }
+                }
+                else
+                {
+                    Console.WriteLine("Categoria não encontrada");
+                }
             }
-            else
+            catch (Exception e)
             {
-                Console.WriteLine("Categoria não encontrada");
+                throw e;
             }
         }
 
-        private void RemoverCategoria()
+
+        private void RemoverCategoriaView()
         {
             Console.Write("Digite o ID da categoria que deseja excluir: ");
             int id = int.Parse(Console.ReadLine());
@@ -129,7 +159,7 @@ namespace TP_POO.Views
 
             if (categoriaExistente != null)
             {
-                categoriaController.RemoverCategoria(id);
+                categoriaController.RemoverCategoriaController(id);
                 Console.WriteLine("Categoria removida com sucesso");
             }
             else
