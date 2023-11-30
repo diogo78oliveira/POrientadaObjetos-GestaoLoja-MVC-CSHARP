@@ -36,25 +36,18 @@ namespace TP_POO.Controllers
         /// <returns></returns>
         public bool AdicionarCategoriaController(Categoria novaCategoria)
         {
-            try
+            if (categorias.Any(c => c.IdCategoria == novaCategoria.IdCategoria))
             {
-                if (categorias.Any(c => c.IdCategoria == novaCategoria.IdCategoria))
-                {
-                    return false;
-                }
-
-                if (categorias.Any(c => c.Nome.Equals(novaCategoria.Nome, StringComparison.OrdinalIgnoreCase)))
-                {
-                    return false;
-                }
-
-                categorias.Add(novaCategoria);
-                return true;
+                return false;
             }
-            catch (Exception e)
+
+            if (categorias.Any(c => c.Nome.Equals(novaCategoria.Nome, StringComparison.OrdinalIgnoreCase)))
             {
-                throw e;
+                return false;
             }
+
+            categorias.Add(novaCategoria);
+            return true;
         }
 
         /// <summary>
@@ -73,27 +66,19 @@ namespace TP_POO.Controllers
         /// <returns></returns>
         public bool AtualizarCategoriaController(Categoria categoriaAtualizada)
         {
-            try
-            {
-                Categoria categoriaExistente = findCategoriaById(categoriaAtualizada.IdCategoria);
+            Categoria categoriaExistente = findCategoriaById(categoriaAtualizada.IdCategoria);
 
-                if (categoriaExistente != null)
+            if (categoriaExistente != null)
+            {
+                if (categorias.Any(c => c.IdCategoria != categoriaAtualizada.IdCategoria && c.Nome.Equals(categoriaAtualizada.Nome, StringComparison.OrdinalIgnoreCase)))
                 {
-                    if (categorias.Any(c => c.IdCategoria != categoriaAtualizada.IdCategoria && c.Nome.Equals(categoriaAtualizada.Nome, StringComparison.OrdinalIgnoreCase)))
-                    {
-                        return false;
-                    }
-
-                    categoriaExistente.Nome = categoriaAtualizada.Nome;
-                    return true;
+                    return false;
                 }
+                categoriaExistente.Nome = categoriaAtualizada.Nome;
+                return true;
+            }
 
-                return false;
-            }
-            catch (Exception e)
-            {
-                throw e;
-            }
+            return false;
         }
 
         /// <summary>
@@ -103,22 +88,14 @@ namespace TP_POO.Controllers
         /// <returns></returns>
         public bool RemoverCategoriaController(int id)
         {
-            try
-            {
-                Categoria categoriaExistente = findCategoriaById(id);
+            Categoria categoriaExistente = findCategoriaById(id);
 
                 if (categoriaExistente != null)
                 {
                     categorias.Remove(categoriaExistente);
                     return true;
                 }
-
-                return false; 
-            }
-            catch (Exception e)
-            {
-                throw e;
-            }
+                return false;
         }
 
         #endregion

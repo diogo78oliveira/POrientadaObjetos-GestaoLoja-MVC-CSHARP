@@ -138,11 +138,9 @@ namespace TP_POO.Views
         /// </summary>
         private void AtualizarCategoriaView()
         {
-            try
+            Console.WriteLine("Insira o ID da categoria para atualizar: ");
+            if (int.TryParse(Console.ReadLine(), out int id))
             {
-                Console.WriteLine("Insira o ID da categoria para atualizar: ");
-                int id = int.Parse(Console.ReadLine());
-
                 Categoria categoriaExistente = categoriaController.findCategoriaById(id);
 
                 if (categoriaExistente != null)
@@ -151,7 +149,8 @@ namespace TP_POO.Views
                     string novoNome = Console.ReadLine();
 
                     Categoria categoriaAtualizada = new Categoria(id, novoNome);
-                    if (categoriaController.AdicionarCategoriaController(categoriaAtualizada))
+
+                    if (categoriaController.AtualizarCategoriaController(categoriaAtualizada))
                     {
                         Console.WriteLine("Categoria atualizada com sucesso");
                     }
@@ -165,9 +164,9 @@ namespace TP_POO.Views
                     Console.WriteLine("Categoria não encontrada");
                 }
             }
-            catch (Exception e)
+            else
             {
-                throw e;
+                Console.WriteLine("ID inválido");
             }
         }
 
