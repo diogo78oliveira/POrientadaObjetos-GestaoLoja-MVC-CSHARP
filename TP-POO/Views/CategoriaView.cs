@@ -125,10 +125,17 @@ namespace TP_POO.Views
 
             Console.WriteLine("Lista de categorias:\n");
 
-            foreach (var categoria in categorias)
+            if (categorias.Count == 0)
             {
-                Console.WriteLine($"ID: {categoria.IdCategoria}, Nome: {categoria.Nome}");
+                Console.WriteLine("Não existe nenhuma categoria");
             }
+            else
+
+                foreach (var categoria in categorias)
+            {
+                Console.WriteLine($"ID: {categoria.IdCategoria}, Nome: {categoria.Nome};");
+            }
+
 
             Console.WriteLine();
         }

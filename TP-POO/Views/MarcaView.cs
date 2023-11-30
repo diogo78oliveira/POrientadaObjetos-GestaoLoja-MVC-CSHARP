@@ -125,13 +125,22 @@ namespace TP_POO.Views
 
             Console.WriteLine("Lista de marcas:\n");
 
-            foreach (var marca in marcas)
+            if (marcas.Count == 0)
             {
-                Console.WriteLine($"ID: {marca.IdMarca}, Nome: {marca.Nome}");
+                Console.WriteLine("Não existe nenhuma marca");
+            }
+            else
+            {
+                foreach (var marca in marcas)
+                {
+                    Console.WriteLine($"ID: {marca.IdMarca}, Nome: {marca.Nome};");
+                }
+                
             }
 
             Console.WriteLine();
         }
+
 
         /// <summary>
         /// Método para atualizar uma categoria
