@@ -8,8 +8,12 @@
  */
 
 using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
 
-namespace E_Commerce
+namespace TP_POO.Models
 {
     public class Marca
     {
@@ -44,6 +48,7 @@ namespace E_Commerce
         public int IdMarca
         {
             get { return idMarca; }
+            set { idMarca = value; }
         }
 
         /// <summary>

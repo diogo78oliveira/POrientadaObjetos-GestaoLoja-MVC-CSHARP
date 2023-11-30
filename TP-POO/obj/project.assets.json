@@ -8,24 +8,19 @@
     "net8.0": []
   },
   "packageFolders": {
-    "C:\\Users\\marco\\.nuget\\packages\\": {},
-    "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages": {}
+    "C:\\Users\\diogo\\.nuget\\packages\\": {}
   },
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\marco\\OneDrive\\Documentos\\GitHub\\TP-POO\\TP-POO\\TP-POO.csproj",
+      "projectUniqueName": "C:\\Users\\diogo\\Documents\\GitHub\\TP-POO\\TP-POO\\TP-POO.csproj",
       "projectName": "TP-POO",
-      "projectPath": "C:\\Users\\marco\\OneDrive\\Documentos\\GitHub\\TP-POO\\TP-POO\\TP-POO.csproj",
-      "packagesPath": "C:\\Users\\marco\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\marco\\OneDrive\\Documentos\\GitHub\\TP-POO\\TP-POO\\obj\\",
+      "projectPath": "C:\\Users\\diogo\\Documents\\GitHub\\TP-POO\\TP-POO\\TP-POO.csproj",
+      "packagesPath": "C:\\Users\\diogo\\.nuget\\packages\\",
+      "outputPath": "C:\\Users\\diogo\\Documents\\GitHub\\TP-POO\\TP-POO\\obj\\",
       "projectStyle": "PackageReference",
-      "fallbackFolders": [
-        "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
-      ],
       "configFilePaths": [
-        "C:\\Users\\marco\\AppData\\Roaming\\NuGet\\NuGet.Config",
-        "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.FallbackLocation.config",
+        "C:\\Users\\diogo\\AppData\\Roaming\\NuGet\\NuGet.Config",
         "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
       ],
       "originalTargetFrameworks": [
