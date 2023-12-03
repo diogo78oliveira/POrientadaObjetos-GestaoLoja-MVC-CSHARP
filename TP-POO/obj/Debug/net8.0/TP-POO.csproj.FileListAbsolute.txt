@@ -28,3 +28,4 @@ C:\Users\diogo\Documents\GitHub\TP-POO\TP-POO\obj\Debug\net8.0\refint\TP-POO.dll
 C:\Users\diogo\Documents\GitHub\TP-POO\TP-POO\obj\Debug\net8.0\TP-POO.pdb
 C:\Users\diogo\Documents\GitHub\TP-POO\TP-POO\obj\Debug\net8.0\TP-POO.genruntimeconfig.cache
 C:\Users\diogo\Documents\GitHub\TP-POO\TP-POO\obj\Debug\net8.0\ref\TP-POO.dll
+C:\Users\marco\OneDrive\Documentos\GitHub\TP-POO\TP-POO\bin\Debug\net8.0\TP-POO.dll.config

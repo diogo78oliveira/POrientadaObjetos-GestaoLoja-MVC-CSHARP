@@ -15,6 +15,7 @@ using System.Threading.Tasks;
 
 namespace TP_POO.Models
 {
+    [Serializable]
     public class Categoria
     {
         #region Attributes

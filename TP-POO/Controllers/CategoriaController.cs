@@ -6,9 +6,12 @@ using System.Runtime.Serialization.Formatters.Binary;
 using System.Text;
 using System.Threading.Tasks;
 using TP_POO.Models;
+using System.IO;
+
 
 namespace TP_POO.Controllers
 {
+    [Serializable]
     public class CategoriaController
     {
         #region Attributes
@@ -98,6 +101,55 @@ namespace TP_POO.Controllers
                 return false;
         }
 
+        /// <summary>
+        /// Método para guardas as categorias num ficheiro binário
+        /// </summary>
+        /// <param name="fileName"></param>
+        /// <returns></returns>
+        public bool SalvaCategoriasBin(string fileName)
+        {
+            if (File.Exists(fileName))
+            {
+                try
+                {
+                    Stream stream = File.Open(fileName, FileMode.Create);
+                    BinaryFormatter bin = new BinaryFormatter();
+                    bin.Serialize(stream, categorias);
+                    stream.Close();
+                    return true;
+                }
+                catch (IOException ex)
+                {
+                    throw ex;
+                }
+            }
+            return false;
+        }
+
+        /// <summary>
+        /// Método para carregar as categorias a partir de um ficheiro binário
+        /// </summary>
+        /// <param name="fileName"></param>
+        /// <returns></returns>
+        public bool CarregaCategoriasBin(string fileName)
+        {
+            if (File.Exists(fileName))
+            {
+                try
+                {
+                    Stream stream = File.Open(fileName, FileMode.Open);
+                    BinaryFormatter bin = new BinaryFormatter();
+                    categorias = (List<Categoria>)bin.Deserialize(stream);
+                    stream.Close();
+                    return true;
+                }
+                catch
+                {
+                    return false;
+                }
+            }
+            return false;
+        }
         #endregion
     }
 }
