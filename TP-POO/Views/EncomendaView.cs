@@ -86,9 +86,9 @@ namespace TP_POO.Views
 
         #endregion
 
-        #region Outros Métodos
+        #region Other Methods
 
-        private void AdicionarEncomendaView()
+        private Encomenda AdicionarEncomendaView()
         {
             Console.WriteLine("Insira o ID do cliente: ");
             if (int.TryParse(Console.ReadLine(), out int idCliente))
@@ -99,56 +99,15 @@ namespace TP_POO.Views
                     Cliente cliente = clienteController.findClienteById(idCliente);
                     Colaborador colaborador = colaboradorController.findColaboradorById(idColaborador);
 
-                    if( cliente != null && colaborador != null)
+                    if (cliente != null && colaborador != null)
                     {
                         Encomenda novaEncomenda = new Encomenda(cliente, colaborador);
-
-                        char adicionarMaisProdutos;
-                        do
-                        {
-                            Console.WriteLine("Insira o ID do produto: ");
-                            if (int.TryParse(Console.ReadLine(), out int idProduto))
-                            {
-                                Produto produtoExistente = produtoController.findProdutoById(idProduto);
-
-                                if (produtoExistente != null)
-                                {
-                                    Console.WriteLine("Insira a quantidade desejada: ");
-                                    if (int.TryParse(Console.ReadLine(), out int quantidade))
-                                    {
-                                        if (quantidade <= produtoExistente.Stock)
-                                        {
-                                            novaEncomenda.AdicionarProdutoQuantidade(produtoExistente, quantidade);
-                                            Console.WriteLine("Produto adicionado à encomenda");
-                                        }
-                                        else
-                                        {
-                                            Console.WriteLine("Quantidade não disponível em stock");
-                                        }
-                                    }
-                                    else
-                                    {
-                                        Console.WriteLine("Quantidade inválida");
-                                    }
-                                }
-                                else
-                                {
-                                    Console.WriteLine("Produto não encontrado");
-                                }
-                            }
-                            else
-                            {
-                                Console.WriteLine("ID do produto inválido");
-                            }
-
-                            Console.WriteLine("\nDeseja adicionar mais produtos? (S/N): ");
-                            adicionarMaisProdutos = Console.ReadKey().KeyChar;
-                            Console.WriteLine();
-                        } while (char.ToUpper(adicionarMaisProdutos) == 'S');
+                        AdicionarProdutosEncomenda(novaEncomenda);
 
                         if (encomendaController.AdicionarEncomendaController(novaEncomenda))
                         {
                             Console.WriteLine("Encomenda adicionada com sucesso");
+                            return novaEncomenda;
                         }
                         else
                         {
@@ -169,7 +128,56 @@ namespace TP_POO.Views
             {
                 Console.WriteLine("ID do cliente inválido");
             }
+
+            return null;
         }
+
+        private void AdicionarProdutosEncomenda(Encomenda encomenda)
+        {
+            char adicionarMaisProdutos;
+            do
+            {
+                Console.WriteLine("Insira o ID do produto: ");
+                if (int.TryParse(Console.ReadLine(), out int idProduto))
+                {
+                    Produto produtoExistente = produtoController.findProdutoById(idProduto);
+
+                    if (produtoExistente != null)
+                    {
+                        Console.WriteLine("Insira a quantidade desejada: ");
+                        if (int.TryParse(Console.ReadLine(), out int quantidade))
+                        {
+                            if (quantidade <= produtoExistente.Stock)
+                            {
+                                encomenda.AdicionarProdutoQuantidade(produtoExistente, quantidade);
+                                Console.WriteLine("Produto adicionado à encomenda");
+                            }
+                            else
+                            {
+                                Console.WriteLine("Quantidade não disponível em stock");
+                            }
+                        }
+                        else
+                        {
+                            Console.WriteLine("Quantidade inválida");
+                        }
+                    }
+                    else
+                    {
+                        Console.WriteLine("Produto não encontrado");
+                    }
+                }
+                else
+                {
+                    Console.WriteLine("ID do produto inválido");
+                }
+
+                Console.WriteLine("\nDeseja adicionar mais produtos? (S/N): ");
+                adicionarMaisProdutos = Console.ReadKey().KeyChar;
+                Console.WriteLine();
+            } while (char.ToUpper(adicionarMaisProdutos) == 'S');
+        }
+
 
         private void VerEncomendasView()
         {
@@ -194,7 +202,7 @@ namespace TP_POO.Views
                         {
                             Produto produto = encomenda.Produtos[i];
                             int quantidade = encomenda.Quantidades[i];
-                            Console.WriteLine($"- {produto.Nome}, Quantidade: {quantidade}\n\n");
+                            Console.WriteLine($"- {produto.Nome}, Quantidade: {quantidade}\n");
                         }
                     }
 

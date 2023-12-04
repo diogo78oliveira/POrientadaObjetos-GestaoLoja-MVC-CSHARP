@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Net.Http.Headers;
 using System.Runtime.InteropServices;
 using System.Text;
 using System.Threading.Tasks;
@@ -12,7 +13,7 @@ namespace TP_POO.Models
     {
         #region Attributes
 
-        private static int totalEncomendas = 1;
+        private static int totalEncomendas = 0;
         private int idEncomenda;
         public Cliente cliente;
         public Colaborador colaborador;
@@ -26,12 +27,19 @@ namespace TP_POO.Models
 
         #region Constructor
 
+        static Encomenda()
+        {
+            CarregarTotalEncomendas();
+        }
+
         public Encomenda(Cliente cli, Colaborador col)
         {
+            totalEncomendas++;
+            idEncomenda = totalEncomendas;
             cliente = cli;
             colaborador = col;
-            idEncomenda = totalEncomendas++;
             data = DateTime.Now;
+            SalvarTotalEncomendas();
         }
 
         #endregion
@@ -41,6 +49,7 @@ namespace TP_POO.Models
         public int IdEncomenda
         {
             get { return idEncomenda; }
+            set { idEncomenda = value; }
         }
 
         public DateTime Data
@@ -55,6 +64,11 @@ namespace TP_POO.Models
         public List<int> Quantidades
         {
             get { return quantidades; }
+        }
+
+        public int TotalEncomendas
+        {
+            get { return totalEncomendas; }
         }
 
         #endregion
@@ -74,6 +88,26 @@ namespace TP_POO.Models
             {
                 return false;
             }
+        }
+
+        private static bool SalvarTotalEncomendas()
+        {
+            File.WriteAllText("totalEncomendas.txt", totalEncomendas.ToString());
+            return true;
+        }
+
+        private static bool CarregarTotalEncomendas()
+        {
+            if (File.Exists("totalEncomendas.txt"))
+            {
+                if (int.TryParse(File.ReadAllText("totalEncomendas.txt"), out int enc))
+                {
+                    totalEncomendas = enc;
+                    return true;
+                }
+                return false;
+            }
+            return false;
         }
 
         #endregion

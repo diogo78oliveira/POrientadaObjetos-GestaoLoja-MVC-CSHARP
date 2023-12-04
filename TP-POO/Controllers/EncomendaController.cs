@@ -29,6 +29,11 @@ namespace TP_POO.Controllers
             {
                 return false;
             }
+
+            if (novaEncomenda.Produtos.Count <= 0)
+            {
+                return false;
+            }
             encomendas.Add(novaEncomenda);
             return true;
         }
@@ -87,7 +92,6 @@ namespace TP_POO.Controllers
             }
             return false;
         }
-
         #endregion
     }
 }

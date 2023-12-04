@@ -275,7 +275,7 @@ namespace TP_POO.Views
                     Console.WriteLine("Insira o novo stock do produto: ");
                     if(int.TryParse(Console.ReadLine(), out int novoStock))
                     {
-                        produtoExistente.Stock = novoStock;
+                        produtoExistente.Stock += novoStock;
                         Console.WriteLine("Stock do produto atualizado com sucesso");
                     }
                     else
