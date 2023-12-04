@@ -15,6 +15,7 @@ using System.Threading.Tasks;
 
 namespace TP_POO.Models
 {
+    [Serializable]
     public class Colaborador : Utilizador
     {
         #region Attributes
@@ -50,6 +51,7 @@ namespace TP_POO.Models
         public int IdColaborador
         {
             get { return idColaborador; }
+            set { idColaborador = value; }
         }
 
         #endregion

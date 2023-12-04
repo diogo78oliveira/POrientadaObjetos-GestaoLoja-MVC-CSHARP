@@ -221,10 +221,10 @@ namespace TP_POO.Views
                     break;
                 case 3:
                     Console.Clear();
-                    Console.WriteLine("Insira o novo telemóvel do cliente: ");
+                    Console.WriteLine("Insira o novo número de telemóvel do cliente: ");
                     string novoTelemovel = Console.ReadLine();
                     clienteExistente.Telemovel = novoTelemovel;
-                    Console.WriteLine("Telemóvel do cliente atualizado com sucesso");
+                    Console.WriteLine("Número de telemóvel do cliente atualizado com sucesso");
                     break;
                 case 4:
                     Console.Clear();

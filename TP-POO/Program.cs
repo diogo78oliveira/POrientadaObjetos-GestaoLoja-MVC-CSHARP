@@ -31,6 +31,9 @@ class Program
         ClienteController clienteController = new ClienteController();
         ClienteView clienteView = new ClienteView(clienteController);
 
+        ColaboradorController colaboradorController = new ColaboradorController();
+        ColaboradorView colaboradorView = new ColaboradorView(colaboradorController);
+
         #endregion
 
         #region Menu
@@ -71,14 +74,13 @@ class Program
                         break;
                     case 5:
                         Console.Clear();
-                        //colaboradorView.MenuColaborador();
+                        colaboradorView.MenuColaborador();
                         break;
                     case 6:
                         Console.Clear();
                         //encomendaView.MenuEncomenda();
                         break;
                     case 0:
-                        Console.WriteLine("A sair...");
                         break;
                     default:
                         Console.WriteLine("Opção inválida");
