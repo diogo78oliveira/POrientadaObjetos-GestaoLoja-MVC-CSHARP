@@ -38,10 +38,13 @@ namespace TP_POO.Models
         /// <summary>
         /// Construtor de um Produto ao receber parâmetros
         /// </summary>
+        /// <param name="id"></param>
         /// <param name="n"></param>
         /// <param name="d"></param>
         /// <param name="p"></param>
         /// <param name="s"></param>
+        /// <param name="m"></param>
+        /// <param name="c"></param>
         public Produto(int id, string n, string d, double p, int s, Marca m, Categoria c)
         {
             idProduto = id;
@@ -63,6 +66,7 @@ namespace TP_POO.Models
         public int IdProduto
         {
             get { return idProduto; }
+            set { idProduto = value; }
         }
 
         /// <summary>

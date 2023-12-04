@@ -1,7 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
-using System.Net.Http.Headers;
 using System.Runtime.Serialization.Formatters.Binary;
 using System.Text;
 using System.Threading.Tasks;
@@ -10,108 +9,107 @@ using TP_POO.Models;
 namespace TP_POO.Controllers
 {
     [Serializable]
-    public class MarcaController
+    public class ClienteController
     {
         #region Attributes
 
-        private List<Marca> marcas = new List<Marca>();
+        private List<Cliente> clientes = new List<Cliente>();
 
         #endregion
 
         #region Methods
 
         /// <summary>
-        /// Método para encontrar uma categoria através do seu ID
+        /// Método para encontrar um cliente através do seu ID
         /// </summary>
         /// <param name="id"></param>
         /// <returns></returns>
-        public Marca findMarcaById(int id)
+        public Cliente findClienteById(int id)
         {
-            return marcas.Find(m => m.IdMarca == id);
+            return clientes.Find(c => c.IdCliente == id);
         }
 
         /// <summary>
-        /// Método para adicionar uma nova categoria
+        /// Método para adicionar um novo cliente
         /// </summary>
-        /// <param name="novaMarca"></param>
+        /// <param name="novoCliente"></param>
         /// <returns></returns>
-        public bool AdicionarMarcaController(Marca novaMarca)
+        public bool AdicionarClienteController(Cliente novoCliente)
         {
-            if (marcas.Any(m => m.IdMarca == novaMarca.IdMarca))
+            if(clientes.Any(c => c.IdCliente == novoCliente.IdCliente))
+            {
+                return false;
+            }
+            
+            if(clientes.Any(c => c.Nome.Equals(novoCliente.Nome, StringComparison.OrdinalIgnoreCase)))
             {
                 return false;
             }
 
-            if (marcas.Any(m => m.Nome.Equals(novaMarca.Nome, StringComparison.OrdinalIgnoreCase)))
-            {
-                return false;
-            }
-
-            marcas.Add(novaMarca);
+            clientes.Add(novoCliente);
             return true;
         }
 
         /// <summary>
-        /// Método para listar as categorias existentes
+        /// Método para listar os clientes existentes
         /// </summary>
         /// <returns></returns>
-        public List<Marca> ListarMarcasController()
+        public List<Cliente> ListarClientesController()
         {
-            return marcas;
+            return clientes;
         }
 
         /// <summary>
-        /// Método para atualizar uma categoria
+        /// Método para atualizar um cliente
         /// </summary>
-        /// <param name="marcaAtualizada"></param>
+        /// <param name="clienteAtualizado"></param>
         /// <returns></returns>
-        public bool AtualizarMarcaController(Marca marcaAtualizada)
+        public bool AtualizarClienteController(Cliente clienteAtualizado)
         {
-            Marca marcaExistente = findMarcaById(marcaAtualizada.IdMarca);
+            Cliente clienteExistente = findClienteById(clienteAtualizado.IdCliente);
 
-            if (marcaExistente != null)
+            if(clienteExistente != null)
             {
-                if (marcas.Any(m => m.IdMarca != marcaAtualizada.IdMarca && m.Nome.Equals(marcaAtualizada.Nome, StringComparison.OrdinalIgnoreCase)))
+                if(clientes.Any(c => c.IdCliente != clienteAtualizado.IdCliente && c.Nome.Equals(clienteAtualizado.Nome, StringComparison.OrdinalIgnoreCase)))
                 {
                     return false;
                 }
-                marcaExistente.Nome = marcaAtualizada.Nome;
+                clienteExistente.Nome = clienteAtualizado.Nome;
                 return true;
             }
-
             return false;
         }
 
         /// <summary>
-        /// Método para remover uma categoria
+        /// Método para remover um cliente
         /// </summary>
         /// <param name="id"></param>
         /// <returns></returns>
-        public bool RemoverMarcaController(int id)
+        public bool RemoverClienteController(int id)
         {
-            Marca marcaExistente = findMarcaById(id);
+            Cliente clienteExistente = findClienteById(id);
 
-            if (marcaExistente != null)
+            if(clienteExistente != null)
             {
-                marcas.Remove(marcaExistente);
+                clientes.Remove(clienteExistente);
                 return true;
             }
             return false;
         }
 
         /// <summary>
-        /// Método para guardas as marcas num ficheiro binário
+        /// Método para guardar os clientes num ficheiro binário
         /// </summary>
         /// <param name="fileName"></param>
         /// <returns></returns>
-        public bool SalvaMarcasBin(string fileName)
+        public bool SalvaClientesBin(string fileName)
         {
             try
             {
-                using (Stream stream = File.Open(fileName, FileMode.Create))
+                using(Stream stream = File.Open(fileName, FileMode.Create))
                 {
                     BinaryFormatter bin = new BinaryFormatter();
-                    bin.Serialize(stream, marcas);
+                    bin.Serialize(stream, clientes);
                 }
                 return true;
             }
@@ -123,11 +121,11 @@ namespace TP_POO.Controllers
         }
 
         /// <summary>
-        /// Método para carregar as marcas a partir de um ficheiro binário
+        /// Método para carregar os clientes a partir de um ficheiro binário
         /// </summary>
         /// <param name="fileName"></param>
         /// <returns></returns>
-        public bool CarregaMarcasBin(string fileName)
+        public bool CarregaClientesBin(string fileName)
         {
             if (File.Exists(fileName))
             {
@@ -135,7 +133,7 @@ namespace TP_POO.Controllers
                 {
                     Stream stream = File.Open(fileName, FileMode.Open);
                     BinaryFormatter bin = new BinaryFormatter();
-                    marcas = (List<Marca>)bin.Deserialize(stream);
+                    clientes = (List<Cliente>)bin.Deserialize(stream);
                     stream.Close();
                     return true;
                 }

@@ -13,8 +13,9 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace E_Commerce
+namespace TP_POO.Models
 {
+    [Serializable]
     public class Cliente : Utilizador
     {
         #region Attributes
@@ -50,6 +51,7 @@ namespace E_Commerce
         public int IdCliente
         {
             get { return idCliente; }
+            set { idCliente = value; }
         }
 
         #endregion

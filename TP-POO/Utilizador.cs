@@ -13,11 +13,11 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace E_Commerce
+namespace TP_POO
 {
+    [Serializable]
     public class Utilizador
     {
-
         #region Attributes
 
         private string nome;

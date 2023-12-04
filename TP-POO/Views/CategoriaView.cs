@@ -78,7 +78,6 @@ namespace TP_POO.Views
                     break;
                 case 5:
                     Console.Clear();
-                    Console.WriteLine("A voltar para o menu principal...");
                     break;
                 default:
                     Console.WriteLine("Opção inválida");
@@ -103,9 +102,7 @@ namespace TP_POO.Views
 
                 Categoria novaCategoria = new Categoria(id, nome);
 
-                bool categoriaAdicionada = categoriaController.AdicionarCategoriaController(novaCategoria);
-
-                if (categoriaAdicionada)
+                if (categoriaController.AdicionarCategoriaController(novaCategoria))
                 {
                     Console.WriteLine("Categoria adicionada com sucesso");
                 }

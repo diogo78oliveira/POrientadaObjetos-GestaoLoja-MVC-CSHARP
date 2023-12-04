@@ -78,7 +78,6 @@ namespace TP_POO.Views
                     break;
                 case 5:
                     Console.Clear();
-                    Console.WriteLine("A voltar para o menu principal...");
                     break;
                 default:
                     Console.WriteLine("Opção inválida");
@@ -91,7 +90,7 @@ namespace TP_POO.Views
         #region Other Methods
 
         /// <summary>
-        /// Método para adicionar uma nova categoria
+        /// Método para adicionar uma nova marca
         /// </summary>
         private void AdicionarMarcaView()
         {
@@ -103,9 +102,7 @@ namespace TP_POO.Views
 
                 Marca novaMarca = new Marca(id, nome);
 
-                bool marcaAdicionada = marcaController.AdicionarMarcaController(novaMarca);
-
-                if (marcaAdicionada)
+                if (marcaController.AdicionarMarcaController(novaMarca))
                 {
                     Console.WriteLine("Marca adicionada com sucesso");
                 }
@@ -121,7 +118,7 @@ namespace TP_POO.Views
         }
 
         /// <summary>
-        /// Método para listar as categorias existentes
+        /// Método para listar as marcas existentes
         /// </summary>
         private void VerMarcasView()
         {
@@ -147,7 +144,7 @@ namespace TP_POO.Views
 
 
         /// <summary>
-        /// Método para atualizar uma categoria
+        /// Método para atualizar uma marca
         /// </summary>
         private void AtualizarMarcaView()
         {
@@ -184,7 +181,7 @@ namespace TP_POO.Views
         }
 
         /// <summary>
-        /// Método para remover uma categoria
+        /// Método para remover uma marca
         /// </summary>
         private void RemoverMarcaView()
         {

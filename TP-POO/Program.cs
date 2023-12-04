@@ -8,7 +8,6 @@
  */
 
 using System;
-using E_Commerce;
 using System.IO;
 using System.Runtime.Serialization.Formatters.Binary;
 using TP_POO.Controllers;
@@ -28,6 +27,9 @@ class Program
 
         ProdutoController produtoController = new ProdutoController();
         ProdutoView produtoView = new ProdutoView(produtoController, marcaController, categoriaController);
+
+        ClienteController clienteController = new ClienteController();
+        ClienteView clienteView = new ClienteView(clienteController);
 
         #endregion
 
@@ -65,7 +67,7 @@ class Program
                         break;
                     case 4:
                         Console.Clear();
-                        //produtoView.MenuCliente();
+                        clienteView.MenuCliente();
                         break;
                     case 5:
                         Console.Clear();

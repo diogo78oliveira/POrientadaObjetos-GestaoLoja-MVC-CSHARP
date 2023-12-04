@@ -13,7 +13,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace E_Commerce
+namespace TP_POO.Models
 {
     public class Colaborador : Utilizador
     {

@@ -94,6 +94,9 @@ namespace TP_POO.Views
 
         #region Other Methods
 
+        /// <summary>
+        /// Método para adicionar um novo produto
+        /// </summary>
         private void AdicionarProdutoView()
         {
             Console.WriteLine("Insira o ID do produto: ");
@@ -164,6 +167,9 @@ namespace TP_POO.Views
             }
         }
 
+        /// <summary>
+        /// Método para listar os produtos existentes
+        /// </summary>
         private void VerProdutosView()
         {
             var produtos = produtoController.ListarProdutosController();
@@ -184,6 +190,9 @@ namespace TP_POO.Views
             Console.WriteLine();
         }
 
+        /// <summary>
+        /// Método para atualizar um produto
+        /// </summary>
         private void AtualizarProdutoView()
         {
             Console.WriteLine("Insira o ID do produto para atualizar: ");
@@ -193,63 +202,23 @@ namespace TP_POO.Views
 
                 if (produtoExistente != null)
                 {
-                    Console.WriteLine("Insira o novo nome do produto: ");
-                    string novoNome = Console.ReadLine();
+                    Console.WriteLine("Escolha o que deseja atualizar:");
+                    Console.WriteLine("1. Nome do produto");
+                    Console.WriteLine("2. Descrição do produto");
+                    Console.WriteLine("3. Preço do produto");
+                    Console.WriteLine("4. Stock do produto");
+                    Console.WriteLine("5. Marca do produto");
+                    Console.WriteLine("6. Categoria do produto");
+                    Console.WriteLine("7. Voltar");
+                    Console.Write("Escolha uma opção: ");
 
-                    Console.WriteLine("Insira a nova descrição do produto: ");
-                    string novaDescricao = Console.ReadLine();
-
-                    Console.WriteLine("Insira o novo preço do produto: ");
-                    if (double.TryParse(Console.ReadLine(), out double novoPreco))
+                    if (int.TryParse(Console.ReadLine(), out int opAtualizarProduto))
                     {
-                        Console.WriteLine("Insira o novo stock do produto: ");
-                        if (int.TryParse(Console.ReadLine(), out int novoStock))
-                        {
-                            Console.WriteLine("Insira o ID da nova marca associada ao produto: ");
-                            if (int.TryParse(Console.ReadLine(), out int novoIdMarca))
-                            {
-                                Console.WriteLine("Insira o ID da nova categoria associada ao produto: ");
-                                if (int.TryParse(Console.ReadLine(), out int novoIdCategoria))
-                                {
-                                    Marca novaMarca = marcaController.findMarcaById(novoIdMarca);
-                                    Categoria novaCategoria = categoriaController.findCategoriaById(novoIdCategoria);
-
-                                    if (novaMarca != null && novaCategoria != null)
-                                    {
-                                        Produto produtoAtualizado = new Produto(id, novoNome, novaDescricao, novoPreco, novoStock, novaMarca, novaCategoria);
-
-                                        if (produtoController.AtualizarProdutoController(produtoAtualizado))
-                                        {
-                                            Console.WriteLine("Produto atualizado com sucesso");
-                                        }
-                                        else
-                                        {
-                                            Console.WriteLine("Erro ao atualizar o produto.");
-                                        }
-                                    }
-                                    else
-                                    {
-                                        Console.WriteLine("Nova marca ou categoria associada não existe.");
-                                    }
-                                }
-                                else
-                                {
-                                    Console.WriteLine("ID da nova categoria inválido.");
-                                }
-                            }
-                            else
-                            {
-                                Console.WriteLine("ID da nova marca inválido.");
-                            }
-                        }
-                        else
-                        {
-                            Console.WriteLine("Novo stock inválido.");
-                        }
+                        AtualizarCamposProduto(id, opAtualizarProduto);
                     }
                     else
                     {
-                        Console.WriteLine("Novo preço inválido.");
+                        Console.WriteLine("Opção inválida");
                     }
                 }
                 else
@@ -263,6 +232,111 @@ namespace TP_POO.Views
             }
         }
 
+        /// <summary>
+        /// Método atualizar uma determinada informação de um produto
+        /// </summary>
+        /// <param name="id"></param>
+        /// <param name="opAtualizarProduto"></param>
+        private void AtualizarCamposProduto(int id, int opAtualizarProduto)
+        {
+            Produto produtoExistente = produtoController.findProdutoById(id);
+
+            switch (opAtualizarProduto)
+            {
+                case 1:
+                    Console.Clear();
+                    Console.WriteLine("Insira o novo nome do produto: ");
+                    string novoNome = Console.ReadLine();
+                    produtoExistente.Nome = novoNome;
+                    Console.WriteLine("Nome do produto atualizado com sucesso");
+                    break;
+                case 2:
+                    Console.Clear();
+                    Console.WriteLine("Insira a nova descrição do produto: ");
+                    string novaDescricao = Console.ReadLine();
+                    produtoExistente.Descricao = novaDescricao;
+                    Console.WriteLine("Descrição do produto atualizada com sucesso");
+                    break;
+                case 3:
+                    Console.Clear();
+                    Console.WriteLine("Insira o novo preço do produto: ");
+                    if (double.TryParse(Console.ReadLine(), out double novoPreco))
+                    {
+                        produtoExistente.Preco = novoPreco;
+                        Console.WriteLine("Preço do produto atualizado com sucesso");
+                    }
+                    else
+                    {
+                        Console.WriteLine("Novo preço inválido");
+                    }
+                    break;
+                case 4: 
+                    Console.Clear();
+                    Console.WriteLine("Insira o novo stock do produto: ");
+                    if(int.TryParse(Console.ReadLine(), out int novoStock))
+                    {
+                        produtoExistente.Stock = novoStock;
+                        Console.WriteLine("Stock do produto atualizado com sucesso");
+                    }
+                    else
+                    {
+                        Console.WriteLine("Novo stock inválido");
+                    }
+                    break;
+                case 5:
+                    Console.Clear();
+                    Console.WriteLine("Insira o ID da nova marca do produto: ");
+                    if(int.TryParse(Console.ReadLine(), out int novoIdMarca))
+                    {
+                        Marca novaMarca = marcaController.findMarcaById(novoIdMarca);
+                        if (novaMarca != null)
+                        {
+                            produtoExistente.marca = novaMarca;
+                            Console.WriteLine("Marca do produto atualizada com sucesso");
+                        }
+                        else
+                        {
+                            Console.WriteLine("Nova marca não existe");
+                        }
+                    }
+                    else
+                    {
+                        Console.WriteLine("ID da nova marca inválido");
+                    }
+                    break;
+                case 6:
+                    Console.Clear();
+                    Console.WriteLine("Insira o ID da nova categoria do produto: ");
+                    if(int.TryParse(Console.ReadLine(), out int novoIdCategoria))
+                    {
+                        Categoria novaCategoria = categoriaController.findCategoriaById(novoIdCategoria);
+                        if(novaCategoria != null)
+                        {
+                            produtoExistente.categoria = novaCategoria;
+                            Console.WriteLine("Categoria do produto atualizada com sucesso");
+                        }
+                        else
+                        {
+                            Console.WriteLine("Nova categoria não existe");
+                        }
+                    }
+                    else
+                    {
+                        Console.WriteLine("ID da nova categoria inválido");
+                    }
+                    break;
+                case 7:
+                    Console.Clear();
+                    break;
+                default:
+                    Console.WriteLine("Opção inválida");
+                    break;
+            }
+        }
+
+        /// <summary>
+        /// Método para remover um produto
+        /// </summary>
         private void RemoverProdutoView()
         {
             Console.Write("Insira o ID do produto que deseja excluir: ");

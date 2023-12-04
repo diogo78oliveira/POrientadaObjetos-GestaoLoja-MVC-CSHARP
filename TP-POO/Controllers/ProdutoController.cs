@@ -88,11 +88,11 @@ namespace TP_POO.Controllers
         /// <returns></returns>
         public bool RemoverProdutoController(int id)
         {
-            Produto produtoExisteste = findProdutoById(id);
+            Produto produtoExistente = findProdutoById(id);
 
-            if (produtoExisteste != null)
+            if (produtoExistente != null)
             {
-                produtos.Remove(produtoExisteste);
+                produtos.Remove(produtoExistente);
                 return true;
             }
             return false;
