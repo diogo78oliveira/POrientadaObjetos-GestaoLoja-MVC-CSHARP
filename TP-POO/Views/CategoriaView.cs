@@ -134,13 +134,12 @@ namespace TP_POO.Views
                 Console.WriteLine("Não existe nenhuma categoria");
             }
             else
-
-                foreach (var categoria in categorias)
             {
-                Console.WriteLine($"ID: {categoria.IdCategoria}, Nome: {categoria.Nome};");
+                foreach (var categoria in categorias)
+                {
+                    Console.WriteLine($"ID: {categoria.IdCategoria}, Nome: {categoria.Nome};");
+                }
             }
-
-
             Console.WriteLine();
         }
 
@@ -198,7 +197,7 @@ namespace TP_POO.Views
             }
             else
             {
-                Console.WriteLine("Categoria não encontrada.");
+                Console.WriteLine("Categoria não encontrada");
             }
         }
 

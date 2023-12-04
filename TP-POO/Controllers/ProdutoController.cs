@@ -1,119 +1,116 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
-using System.Net.Http.Headers;
 using System.Runtime.Serialization.Formatters.Binary;
 using System.Text;
 using System.Threading.Tasks;
 using TP_POO.Models;
-using System.IO;
-
 
 namespace TP_POO.Controllers
 {
     [Serializable]
-    public class CategoriaController
+    public class ProdutoController
     {
         #region Attributes
 
-        private List<Categoria> categorias = new List<Categoria>();
+        private List<Produto> produtos = new List<Produto>();
 
         #endregion
 
         #region Methods
 
         /// <summary>
-        /// Método para encontrar uma categoria através do seu ID
+        /// Método para encontrar um produto através do seu ID
         /// </summary>
         /// <param name="id"></param>
         /// <returns></returns>
-        public Categoria findCategoriaById(int id)
+        public Produto findProdutoById(int id)
         {
-            return categorias.Find(c => c.IdCategoria == id);
+            return produtos.Find(p => p.IdProduto == id);
         }
 
         /// <summary>
-        /// Método para adicionar uma nova categoria
+        /// Método para adicionar um novo produto
         /// </summary>
-        /// <param name="novaCategoria"></param>
+        /// <param name="novoProduto"></param>
         /// <returns></returns>
-        public bool AdicionarCategoriaController(Categoria novaCategoria)
+        public bool AdicionarProdutoController(Produto novoProduto)
         {
-            if (categorias.Any(c => c.IdCategoria == novaCategoria.IdCategoria))
+            if (produtos.Any(p => p.IdProduto == novoProduto.IdProduto))
             {
                 return false;
             }
 
-            if (categorias.Any(c => c.Nome.Equals(novaCategoria.Nome, StringComparison.OrdinalIgnoreCase)))
+            if (produtos.Any(p => p.Nome.Equals(novoProduto.Nome, StringComparison.OrdinalIgnoreCase)))
             {
                 return false;
             }
 
-            categorias.Add(novaCategoria);
+            produtos.Add(novoProduto);
             return true;
         }
 
         /// <summary>
-        /// Método para listar as categorias existentes
+        /// Método para listar os produtos existentes
         /// </summary>
         /// <returns></returns>
-        public List<Categoria> ListarCategoriasController()
+        public List<Produto> ListarProdutosController()
         {
-            return categorias;
+            return produtos;
         }
 
         /// <summary>
-        /// Método para atualizar uma categoria
+        /// Método para atualizar um produto
         /// </summary>
-        /// <param name="categoriaAtualizada"></param>
+        /// <param name="produtoAtualizado"></param>
         /// <returns></returns>
-        public bool AtualizarCategoriaController(Categoria categoriaAtualizada)
+        public bool AtualizarProdutoController(Produto produtoAtualizado)
         {
-            Categoria categoriaExistente = findCategoriaById(categoriaAtualizada.IdCategoria);
+            Produto produtoExistente = findProdutoById(produtoAtualizado.IdProduto);
 
-            if (categoriaExistente != null)
+            if (produtoExistente != null)
             {
-                if (categorias.Any(c => c.IdCategoria != categoriaAtualizada.IdCategoria && c.Nome.Equals(categoriaAtualizada.Nome, StringComparison.OrdinalIgnoreCase)))
+                if (produtos.Any(p => p.IdProduto != produtoAtualizado.IdProduto && p.Nome.Equals(produtoAtualizado.Nome, StringComparison.OrdinalIgnoreCase)))
                 {
                     return false;
                 }
-                categoriaExistente.Nome = categoriaAtualizada.Nome;
+
+                produtoExistente.Nome = produtoAtualizado.Nome;
                 return true;
             }
-
             return false;
         }
 
         /// <summary>
-        /// Método para remover uma categoria
+        /// Método para remover um produto
         /// </summary>
         /// <param name="id"></param>
         /// <returns></returns>
-        public bool RemoverCategoriaController(int id)
+        public bool RemoverProdutoController(int id)
         {
-            Categoria categoriaExistente = findCategoriaById(id);
+            Produto produtoExisteste = findProdutoById(id);
 
-                if (categoriaExistente != null)
-                {
-                    categorias.Remove(categoriaExistente);
-                    return true;
-                }
-                return false;
+            if (produtoExisteste != null)
+            {
+                produtos.Remove(produtoExisteste);
+                return true;
+            }
+            return false;
         }
 
         /// <summary>
-        /// Método para guardas as categorias num ficheiro binário
+        /// Método para guardar os produtos num ficheiro binário
         /// </summary>
         /// <param name="fileName"></param>
         /// <returns></returns>
-        public bool SalvaCategoriasBin(string fileName)
+        public bool SalvaProdutosBin(string fileName)
         {
             try
             {
                 using (Stream stream = File.Open(fileName, FileMode.Create))
                 {
                     BinaryFormatter bin = new BinaryFormatter();
-                    bin.Serialize(stream, categorias);
+                    bin.Serialize(stream, produtos);
                 }
                 return true;
             }
@@ -125,11 +122,11 @@ namespace TP_POO.Controllers
         }
 
         /// <summary>
-        /// Método para carregar as categorias a partir de um ficheiro binário
+        /// Método para carregar os produtos a partir de um ficheiro binário
         /// </summary>
         /// <param name="fileName"></param>
         /// <returns></returns>
-        public bool CarregaCategoriasBin(string fileName)
+        public bool CarregaProdutosBin(string fileName)
         {
             if (File.Exists(fileName))
             {
@@ -137,7 +134,7 @@ namespace TP_POO.Controllers
                 {
                     Stream stream = File.Open(fileName, FileMode.Open);
                     BinaryFormatter bin = new BinaryFormatter();
-                    categorias = (List<Categoria>)bin.Deserialize(stream);
+                    produtos = (List<Produto>)bin.Deserialize(stream);
                     stream.Close();
                     return true;
                 }

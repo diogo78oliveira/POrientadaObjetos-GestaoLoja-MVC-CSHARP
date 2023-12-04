@@ -26,6 +26,9 @@ class Program
         MarcaController marcaController = new MarcaController();
         MarcaView marcaView = new MarcaView(marcaController);
 
+        ProdutoController produtoController = new ProdutoController();
+        ProdutoView produtoView = new ProdutoView(produtoController, marcaController, categoriaController);
+
         #endregion
 
         #region Menu
@@ -50,7 +53,7 @@ class Program
                 {
                     case 1:
                         Console.Clear();
-                        //produtoView.MenuProduto();
+                        produtoView.MenuProduto();
                         break;
                     case 2:
                         Console.Clear();

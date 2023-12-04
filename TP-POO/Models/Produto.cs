@@ -14,8 +14,9 @@ using System.Text;
 using System.Threading.Tasks;
 using TP_POO.Models;
 
-namespace E_Commerce
+namespace TP_POO.Models
 {
+    [Serializable]
     public class Produto
     {
         #region Attributes
@@ -116,6 +117,5 @@ namespace E_Commerce
         #endregion
 
         #endregion
-
     }
 }
