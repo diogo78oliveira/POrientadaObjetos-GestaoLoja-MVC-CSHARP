@@ -34,6 +34,9 @@ class Program
         ColaboradorController colaboradorController = new ColaboradorController();
         ColaboradorView colaboradorView = new ColaboradorView(colaboradorController);
 
+        EncomendaController encomendaController = new EncomendaController();
+        EncomendaView encomendaView = new EncomendaView(encomendaController, produtoController, clienteController, colaboradorController);
+
         #endregion
 
         #region Menu
@@ -78,7 +81,7 @@ class Program
                         break;
                     case 6:
                         Console.Clear();
-                        //encomendaView.MenuEncomenda();
+                        encomendaView.MenuEncomenda();
                         break;
                     case 0:
                         break;

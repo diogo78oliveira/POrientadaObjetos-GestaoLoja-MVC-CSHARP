@@ -122,7 +122,7 @@ namespace TP_POO.Views
         /// </summary>
         private void VerMarcasView()
         {
-            var marcas = marcaController.ListarMarcasController();
+            List<Marca> marcas = marcaController.ListarMarcasController();
 
             Console.WriteLine("Lista de marcas:\n");
 
@@ -132,16 +132,13 @@ namespace TP_POO.Views
             }
             else
             {
-                foreach (var marca in marcas)
+                foreach (Marca marca in marcas)
                 {
-                    Console.WriteLine($"ID: {marca.IdMarca}, Nome: {marca.Nome};");
+                    Console.WriteLine($"Marca #{marca.IdMarca}\nNome: {marca.Nome}\n");
                 }
-                
             }
-
             Console.WriteLine();
         }
-
 
         /// <summary>
         /// Método para atualizar uma marca

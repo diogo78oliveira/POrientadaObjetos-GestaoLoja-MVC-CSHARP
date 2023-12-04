@@ -137,7 +137,7 @@ namespace TP_POO.Views
         /// </summary>
         private void VerClientesView()
         {
-            var clientes = clienteController.ListarClientesController();
+            List<Cliente> clientes = clienteController.ListarClientesController();
 
             Console.WriteLine("Lista de clientes:\n");
 
@@ -147,9 +147,9 @@ namespace TP_POO.Views
             }
             else
             {
-                foreach(var cliente in clientes)
+                foreach(Cliente cliente in clientes)
                 {
-                    Console.WriteLine($"ID: {cliente.IdCliente}, Nome: {cliente.Nome}, Morada: {cliente.Morada}, Telemóvel: {cliente.Telemovel}, Data Nascimento: {cliente.DataNascimento};");
+                    Console.WriteLine($"Cliente #{cliente.IdCliente}\nNome: {cliente.Nome}\nMorada: {cliente.Morada}\nTelemóvel: {cliente.Telemovel}\nData Nascimento: {cliente.DataNascimento}\n");
                 }
             }
             Console.WriteLine();

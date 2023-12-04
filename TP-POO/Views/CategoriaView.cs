@@ -122,7 +122,7 @@ namespace TP_POO.Views
         /// </summary>
         private void VerCategoriasView()
         {
-            var categorias = categoriaController.ListarCategoriasController();
+            List<Categoria> categorias = categoriaController.ListarCategoriasController();
 
             Console.WriteLine("Lista de categorias:\n");
 
@@ -132,9 +132,9 @@ namespace TP_POO.Views
             }
             else
             {
-                foreach (var categoria in categorias)
+                foreach (Categoria categoria in categorias)
                 {
-                    Console.WriteLine($"ID: {categoria.IdCategoria}, Nome: {categoria.Nome};");
+                    Console.WriteLine($"Categoria #{categoria.IdCategoria}\nNome: {categoria.Nome}\n");
                 }
             }
             Console.WriteLine();

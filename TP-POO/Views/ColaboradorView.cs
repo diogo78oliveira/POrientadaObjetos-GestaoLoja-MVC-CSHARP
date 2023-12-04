@@ -37,7 +37,7 @@ namespace TP_POO.Views
             {
                 Console.WriteLine("========== Colaboradores ==========");
                 Console.WriteLine("1. Adicionar colaborador");
-                Console.WriteLine("2. Ver colaboradors");
+                Console.WriteLine("2. Ver colaboradores");
                 Console.WriteLine("3. Atualizar colaborador");
                 Console.WriteLine("4. Remover colaborador");
                 Console.WriteLine("5. Voltar");
@@ -137,7 +137,7 @@ namespace TP_POO.Views
         /// </summary>
         public void VerColaboradoresView()
         {
-            var colaboradores = colaboradorController.ListarColaboradoresController();
+            List<Colaborador> colaboradores = colaboradorController.ListarColaboradoresController();
 
             Console.WriteLine("Lista de colaboradores:\n");
 
@@ -147,9 +147,9 @@ namespace TP_POO.Views
             }
             else
             {
-                foreach(var colaborador in colaboradores)
+                foreach(Colaborador colaborador in colaboradores)
                 {
-                    Console.WriteLine($"ID: {colaborador.IdColaborador}, Nome: {colaborador.Nome}, Morada: {colaborador.Morada}, Telemóvel: {colaborador.Telemovel}, Data Nascimento: {colaborador.DataNascimento};");
+                    Console.WriteLine($"Colaborador #{colaborador.IdColaborador}\nNome: {colaborador.Nome}\nMorada: {colaborador.Morada}\nTelemóvel: {colaborador.Telemovel}\nData Nascimento: {colaborador.DataNascimento}\n");
                 }
             }
             Console.WriteLine();

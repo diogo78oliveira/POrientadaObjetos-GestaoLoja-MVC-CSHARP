@@ -118,6 +118,7 @@ namespace TP_POO.Models
         ~Produto()
         {
         }
+
         #endregion
 
         #endregion

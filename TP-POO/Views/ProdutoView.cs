@@ -172,7 +172,7 @@ namespace TP_POO.Views
         /// </summary>
         private void VerProdutosView()
         {
-            var produtos = produtoController.ListarProdutosController();
+            List<Produto> produtos = produtoController.ListarProdutosController();
 
             Console.WriteLine("Lista de produtos:\n");
 
@@ -182,9 +182,9 @@ namespace TP_POO.Views
             }
             else
             {
-                foreach (var produto in produtos)
+                foreach (Produto produto in produtos)
                 {
-                    Console.WriteLine($"ID: {produto.IdProduto}, Nome: {produto.Nome}, Descrição: {produto.Descricao}, Preço: {produto.Preco}, Stock: {produto.Stock}, Marca: {produto.marca.Nome}, Categoria: {produto.categoria.nome};");
+                    Console.WriteLine($"Produto #{produto.IdProduto}\nNome: {produto.Nome}\nDescrição: {produto.Descricao}\nPreço: {produto.Preco}\nStock: {produto.Stock}\nMarca: {produto.marca.Nome}\nCategoria: {produto.categoria.nome}\n");
                 }
             }
             Console.WriteLine();
