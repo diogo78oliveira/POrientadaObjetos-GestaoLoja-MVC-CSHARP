@@ -5,6 +5,7 @@ using System.Net.Http.Headers;
 using System.Runtime.InteropServices;
 using System.Text;
 using System.Threading.Tasks;
+using System.Xml.Schema;
 
 namespace TP_POO.Models
 {
@@ -20,6 +21,7 @@ namespace TP_POO.Models
         private List<Produto> produtos = new List<Produto>();
         private List<int> quantidades = new List<int>();
         private DateTime data;
+        private double total;
 
         #endregion
 
@@ -39,6 +41,7 @@ namespace TP_POO.Models
             cliente = cli;
             colaborador = col;
             data = DateTime.Now;
+            total = 0;
             SalvarTotalEncomendas();
         }
 
@@ -71,6 +74,11 @@ namespace TP_POO.Models
             get { return totalEncomendas; }
         }
 
+        public double Total
+        {
+            get { return total; }
+        }
+
         #endregion
 
         #region Other Methods
@@ -82,6 +90,7 @@ namespace TP_POO.Models
                 produtos.Add(produto);
                 quantidades.Add(quantidade);
                 produto.Stock -= quantidade;
+                total += produto.Preco * quantidade;
                 return true;
             }
             else

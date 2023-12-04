@@ -202,11 +202,11 @@ namespace TP_POO.Views
                         {
                             Produto produto = encomenda.Produtos[i];
                             int quantidade = encomenda.Quantidades[i];
-                            Console.WriteLine($"- {produto.Nome}, Quantidade: {quantidade}\n");
+                            Console.WriteLine($"- {produto.Nome}, Quantidade: {quantidade}, Preço: {produto.Preco} €");
                         }
                     }
-
-                    Console.WriteLine();
+                    Console.WriteLine($"Total: {encomenda.Total} €");
+                    Console.WriteLine("\n");
                 }
             }
         }
