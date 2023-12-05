@@ -5,6 +5,7 @@ using System.Runtime.Serialization.Formatters.Binary;
 using System.Text;
 using System.Threading.Tasks;
 using TP_POO.Models;
+using System.Text.Json;
 
 namespace TP_POO.Controllers
 {
@@ -145,6 +146,28 @@ namespace TP_POO.Controllers
             }
             return false;
         }
+        public bool GuardaProdutosJSON(string fileName)
+        {
+            try
+            {
+                using (StreamWriter writer = new StreamWriter(fileName))
+                {
+                    foreach (var produto in produtos)
+                    {
+                        string json = JsonSerializer.Serialize(produto);
+                        writer.WriteLine(json);
+                    }
+                }
+
+                return true;
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine($"Erro: {ex.Message}");
+                return false;
+            }
+        }
+
 
         #endregion
     }

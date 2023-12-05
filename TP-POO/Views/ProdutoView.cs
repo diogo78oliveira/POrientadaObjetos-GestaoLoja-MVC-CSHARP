@@ -66,6 +66,7 @@ namespace TP_POO.Views
                     Console.Clear();
                     AdicionarProdutoView();
                     produtoController.GuardarProdutosBin("produtos.bin");
+                    produtoController.GuardaProdutosJSON("produtos.json");
                     break;
                 case 2:
                     Console.Clear();

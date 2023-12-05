@@ -3,8 +3,10 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Runtime.Serialization.Formatters.Binary;
 using System.Text;
+using System.Text.Json;
 using System.Threading.Tasks;
 using TP_POO.Models;
+using System.Text.Json;
 
 namespace TP_POO.Controllers
 {
@@ -143,6 +145,27 @@ namespace TP_POO.Controllers
                 }
             }
             return false;
+        }
+        public bool GuardarColaboradoresJSON(string fileName)
+        {
+            try
+            {
+                using (StreamWriter writer = new StreamWriter(fileName))
+                {
+                    foreach (var colaborador in colaboradores)
+                    {
+                        string json = JsonSerializer.Serialize(colaborador);
+                        writer.WriteLine(json);
+                    }
+                }
+
+                return true;
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine($"Erro: {ex.Message}");
+                return false;
+            }
         }
 
         #endregion

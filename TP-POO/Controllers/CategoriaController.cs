@@ -7,6 +7,7 @@ using System.Text;
 using System.Threading.Tasks;
 using TP_POO.Models;
 using System.IO;
+using System.Text.Json;
 
 
 namespace TP_POO.Controllers
@@ -148,6 +149,28 @@ namespace TP_POO.Controllers
             }
             return false;
         }
+        public bool GuardarCategoriasJSON(string fileName)
+        {
+            try
+            {
+                using (StreamWriter writer = new StreamWriter(fileName))
+                {
+                    foreach (var categoria in categorias)
+                    {
+                        string json = JsonSerializer.Serialize(categoria);
+                        writer.WriteLine(json);
+                    }
+                }
+
+                return true;
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine($"Erro: {ex.Message}");
+                return false;
+            }
+        }
+
 
         #endregion
     }

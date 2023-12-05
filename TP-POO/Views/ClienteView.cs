@@ -62,6 +62,7 @@ namespace TP_POO.Views
                     Console.Clear();
                     AdicionarClienteView();
                     clienteController.GuardarClientesBin("clientes.bin");
+                    clienteController.GuardarClientesJSON("clientes.json");
                     break;
                 case 2: 
                     Console.Clear();
@@ -149,7 +150,7 @@ namespace TP_POO.Views
             {
                 foreach(Cliente cliente in clientes)
                 {
-                    Console.WriteLine($"Cliente #{cliente.IdCliente}\nNome: {cliente.Nome}\nMorada: {cliente.Morada}\nTelemóvel: {cliente.Telemovel}\nData Nascimento: {cliente.DataNascimento}\n");
+                    Console.WriteLine($"Cliente #{cliente.IdCliente}\nNome: {cliente.Nome}\nMorada: {cliente.Morada}\nTelemóvel: {cliente.Telemovel}\nData Nascimento: {cliente.DataNascimento.ToString("dd/MM/yyyy")}\n");
                 }
             }
             Console.WriteLine();

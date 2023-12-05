@@ -62,6 +62,7 @@ namespace TP_POO.Views
                     Console.Clear();
                     AdicionarColaboradorView();
                     colaboradorController.GuardarColaboradoresBin("colaboradores.bin");
+                    colaboradorController.GuardarColaboradoresJSON("colaboradores.json");
                     break;
                 case 2:
                     Console.Clear();
@@ -149,10 +150,9 @@ namespace TP_POO.Views
             {
                 foreach(Colaborador colaborador in colaboradores)
                 {
-                    Console.WriteLine($"Colaborador #{colaborador.IdColaborador}\nNome: {colaborador.Nome}\nMorada: {colaborador.Morada}\nTelemóvel: {colaborador.Telemovel}\nData Nascimento: {colaborador.DataNascimento}\n");
+                    Console.WriteLine($"Colaborador #{colaborador.IdColaborador}\nNome: {colaborador.Nome}\nMorada: {colaborador.Morada}\nTelemóvel: {colaborador.Telemovel}\nData Nascimento: {colaborador.DataNascimento.ToString("dd/MM/yyyy")}\n");
                 }
             }
-            Console.WriteLine();
         }
 
         /// <summary>

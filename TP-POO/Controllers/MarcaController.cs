@@ -4,8 +4,10 @@ using System.Linq;
 using System.Net.Http.Headers;
 using System.Runtime.Serialization.Formatters.Binary;
 using System.Text;
+using System.Text.Json;
 using System.Threading.Tasks;
 using TP_POO.Models;
+using System.Text.Json;
 
 namespace TP_POO.Controllers
 {
@@ -145,6 +147,27 @@ namespace TP_POO.Controllers
                 }
             }
             return false;
+        }
+        public bool GuardaMarcasJSON(string fileName)
+        {
+            try
+            {
+                using (StreamWriter writer = new StreamWriter(fileName))
+                {
+                    foreach (var marca in marcas)
+                    {
+                        string json = JsonSerializer.Serialize(marca);
+                        writer.WriteLine(json);
+                    }
+                }
+
+                return true;
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine($"Erro: {ex.Message}");
+                return false;
+            }
         }
 
         #endregion
