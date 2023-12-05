@@ -23,7 +23,7 @@ namespace TP_POO.Views
         public MarcaView(MarcaController controller)
         {
             marcaController = controller;
-            marcaController.CarregaMarcasBin("marcas.bin");
+            marcaController.CarregarMarcasBin("marcas.bin");
         }
 
         #endregion
@@ -60,7 +60,7 @@ namespace TP_POO.Views
                 case 1:
                     Console.Clear();
                     AdicionarMarcaView();
-                    marcaController.SalvaMarcasBin("marcas.bin");
+                    marcaController.GuardarMarcasBin("marcas.bin");
                     break;
                 case 2:
                     Console.Clear();
@@ -69,12 +69,12 @@ namespace TP_POO.Views
                 case 3:
                     Console.Clear();
                     AtualizarMarcaView();
-                    marcaController.SalvaMarcasBin("marcas.bin");
+                    marcaController.GuardarMarcasBin("marcas.bin");
                     break;
                 case 4:
                     Console.Clear();
                     RemoverMarcaView();
-                    marcaController.SalvaMarcasBin("marcas.bin");
+                    marcaController.GuardarMarcasBin("marcas.bin");
                     break;
                 case 5:
                     Console.Clear();

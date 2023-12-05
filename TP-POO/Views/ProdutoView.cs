@@ -27,7 +27,7 @@ namespace TP_POO.Views
             this.produtoController = produtoController;
             this.marcaController = marcaController;
             this.categoriaController = categoriaController;
-            produtoController.CarregaProdutosBin("produtos.bin");
+            produtoController.CarregarProdutosBin("produtos.bin");
         }
 
         #endregion
@@ -65,7 +65,7 @@ namespace TP_POO.Views
                 case 1:
                     Console.Clear();
                     AdicionarProdutoView();
-                    produtoController.SalvaProdutosBin("produtos.bin");
+                    produtoController.GuardarProdutosBin("produtos.bin");
                     break;
                 case 2:
                     Console.Clear();
@@ -74,12 +74,12 @@ namespace TP_POO.Views
                 case 3:
                     Console.Clear();
                     AtualizarProdutoView();
-                    produtoController.SalvaProdutosBin("produtos.bin");
+                    produtoController.GuardarProdutosBin("produtos.bin");
                     break;
                 case 4:
                     Console.Clear();
                     RemoverProdutoView();
-                    produtoController.SalvaProdutosBin("produtos.bin");
+                    produtoController.GuardarProdutosBin("produtos.bin");
                     break;
                 case 5:
                     Console.Clear();

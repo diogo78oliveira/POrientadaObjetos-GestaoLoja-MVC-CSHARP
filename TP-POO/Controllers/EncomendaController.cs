@@ -55,7 +55,7 @@ namespace TP_POO.Controllers
             return false;
         }
 
-        public bool SalvaEncomendasBin(string fileName)
+        public bool GuardarEncomendasBin(string fileName)
         {
             try
             {
@@ -73,7 +73,7 @@ namespace TP_POO.Controllers
             }
         }
 
-        public bool CarregaEncomendasBin(string fileName)
+        public bool CarregarEncomendasBin(string fileName)
         {
             if (File.Exists(fileName))
             {

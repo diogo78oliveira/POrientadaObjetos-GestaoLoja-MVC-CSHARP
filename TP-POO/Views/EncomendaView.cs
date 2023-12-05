@@ -24,7 +24,7 @@ namespace TP_POO.Views
             this.produtoController = produtoController;
             this.clienteController = clienteController;
             this.colaboradorController = colaboradorController;
-            encomendaController.CarregaEncomendasBin("encomendas.bin");
+            encomendaController.CarregarEncomendasBin("encomendas.bin");
         }
 
         #endregion
@@ -63,8 +63,8 @@ namespace TP_POO.Views
                 case 1:
                     Console.Clear();
                     AdicionarEncomendaView();
-                    encomendaController.SalvaEncomendasBin("encomendas.bin");
-                    produtoController.SalvaProdutosBin("produtos.bin");
+                    encomendaController.GuardarEncomendasBin("encomendas.bin");
+                    produtoController.GuardarProdutosBin("produtos.bin");
                     break;
                 case 2:
                     Console.Clear();
@@ -73,7 +73,7 @@ namespace TP_POO.Views
                 case 3:
                     Console.Clear();
                     RemoverEncomendaView();
-                    encomendaController.SalvaEncomendasBin("encomendas.bin");
+                    encomendaController.GuardarEncomendasBin("encomendas.bin");
                     break;
                 case 4:
                     Console.Clear();

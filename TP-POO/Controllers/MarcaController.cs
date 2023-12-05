@@ -104,7 +104,7 @@ namespace TP_POO.Controllers
         /// </summary>
         /// <param name="fileName"></param>
         /// <returns></returns>
-        public bool SalvaMarcasBin(string fileName)
+        public bool GuardarMarcasBin(string fileName)
         {
             try
             {
@@ -127,7 +127,7 @@ namespace TP_POO.Controllers
         /// </summary>
         /// <param name="fileName"></param>
         /// <returns></returns>
-        public bool CarregaMarcasBin(string fileName)
+        public bool CarregarMarcasBin(string fileName)
         {
             if (File.Exists(fileName))
             {

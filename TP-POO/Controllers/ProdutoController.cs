@@ -103,7 +103,7 @@ namespace TP_POO.Controllers
         /// </summary>
         /// <param name="fileName"></param>
         /// <returns></returns>
-        public bool SalvaProdutosBin(string fileName)
+        public bool GuardarProdutosBin(string fileName)
         {
             try
             {
@@ -126,7 +126,7 @@ namespace TP_POO.Controllers
         /// </summary>
         /// <param name="fileName"></param>
         /// <returns></returns>
-        public bool CarregaProdutosBin(string fileName)
+        public bool CarregarProdutosBin(string fileName)
         {
             if (File.Exists(fileName))
             {
