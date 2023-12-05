@@ -23,7 +23,7 @@ namespace TP_POO.Views
         public CategoriaView(CategoriaController controller)
         {
             categoriaController = controller;
-            categoriaController.CarregaCategoriasBin("categorias.bin");
+            categoriaController.CarregarCategoriasBin("categorias.bin");
         }
 
         #endregion
@@ -60,7 +60,7 @@ namespace TP_POO.Views
                 case 1:
                     Console.Clear();
                     AdicionarCategoriaView();
-                    categoriaController.SalvaCategoriasBin("categorias.bin");
+                    categoriaController.GuardarCategoriasBin("categorias.bin");
                     break;
                 case 2:
                     Console.Clear();
@@ -69,12 +69,12 @@ namespace TP_POO.Views
                 case 3:
                     Console.Clear();
                     AtualizarCategoriaView();
-                    categoriaController.SalvaCategoriasBin("categorias.bin");
+                    categoriaController.GuardarCategoriasBin("categorias.bin");
                     break;
                 case 4:
                     Console.Clear();
                     RemoverCategoriaView();
-                    categoriaController.SalvaCategoriasBin("categorias.bin");
+                    categoriaController.GuardarCategoriasBin("categorias.bin");
                     break;
                 case 5:
                     Console.Clear();

@@ -102,7 +102,7 @@ namespace TP_POO.Controllers
         /// </summary>
         /// <param name="fileName"></param>
         /// <returns></returns>
-        public bool SalvaColaboradoresBin(string fileName)
+        public bool GuardarColaboradoresBin(string fileName)
         {
             try
             {
@@ -125,7 +125,7 @@ namespace TP_POO.Controllers
         /// </summary>
         /// <param name="fileName"></param>
         /// <returns></returns>
-        public bool CarregaColaboradoresBin(string fileName)
+        public bool CarregarColaboradoresBin(string fileName)
         {
             if (File.Exists(fileName))
             {

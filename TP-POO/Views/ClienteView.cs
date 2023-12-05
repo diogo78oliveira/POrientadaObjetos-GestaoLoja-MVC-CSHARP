@@ -23,7 +23,7 @@ namespace TP_POO.Views
         public ClienteView(ClienteController controller)
         {
             clienteController = controller;
-            clienteController.CarregaClientesBin("clientes.bin");
+            clienteController.CarregarClientesBin("clientes.bin");
         }
 
         #endregion
@@ -61,7 +61,7 @@ namespace TP_POO.Views
                 case 1:
                     Console.Clear();
                     AdicionarClienteView();
-                    clienteController.SalvaClientesBin("clientes.bin");
+                    clienteController.GuardarClientesBin("clientes.bin");
                     break;
                 case 2: 
                     Console.Clear();
@@ -70,12 +70,12 @@ namespace TP_POO.Views
                 case 3:
                     Console.Clear();
                     AtualizarClienteView();
-                    clienteController.SalvaClientesBin("clientes.bin");
+                    clienteController.GuardarClientesBin("clientes.bin");
                     break;
                 case 4:
                     Console.Clear();
                     RemoverClienteView();
-                    clienteController.SalvaClientesBin("clientes.bin");
+                    clienteController.GuardarClientesBin("clientes.bin");
                     break;
                 case 5:
                     Console.Clear();

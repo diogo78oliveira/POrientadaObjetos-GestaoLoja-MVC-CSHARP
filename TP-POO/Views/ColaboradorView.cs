@@ -23,7 +23,7 @@ namespace TP_POO.Views
         public ColaboradorView(ColaboradorController controller)
         {
             colaboradorController = controller;
-            colaboradorController.CarregaColaboradoresBin("colaboradores.bin");
+            colaboradorController.CarregarColaboradoresBin("colaboradores.bin");
         }
 
         #endregion
@@ -61,7 +61,7 @@ namespace TP_POO.Views
                 case 1:
                     Console.Clear();
                     AdicionarColaboradorView();
-                    colaboradorController.SalvaColaboradoresBin("colaboradores.bin");
+                    colaboradorController.GuardarColaboradoresBin("colaboradores.bin");
                     break;
                 case 2:
                     Console.Clear();
@@ -70,12 +70,12 @@ namespace TP_POO.Views
                 case 3:
                     Console.Clear();
                     AtualizarColaboradorView();
-                    colaboradorController.SalvaColaboradoresBin("colaboradores.bin");
+                    colaboradorController.GuardarColaboradoresBin("colaboradores.bin");
                     break;
                 case 4:
                     Console.Clear();
                     RemoverColaboradorView();
-                    colaboradorController.SalvaColaboradoresBin("colaboradores.bin");
+                    colaboradorController.GuardarColaboradoresBin("colaboradores.bin");
                     break;
                 case 5:
                     Console.Clear();
