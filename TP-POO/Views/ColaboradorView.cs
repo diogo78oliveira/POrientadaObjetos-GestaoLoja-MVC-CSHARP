@@ -72,11 +72,13 @@ namespace TP_POO.Views
                     Console.Clear();
                     AtualizarColaboradorView();
                     colaboradorController.GuardarColaboradoresBin("colaboradores.bin");
+                    colaboradorController.GuardarColaboradoresJSON("colaboradores.json");
                     break;
                 case 4:
                     Console.Clear();
                     RemoverColaboradorView();
                     colaboradorController.GuardarColaboradoresBin("colaboradores.bin");
+                    colaboradorController.GuardarColaboradoresJSON("colaboradores.json");
                     break;
                 case 5:
                     Console.Clear();

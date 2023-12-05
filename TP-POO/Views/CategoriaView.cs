@@ -71,11 +71,13 @@ namespace TP_POO.Views
                     Console.Clear();
                     AtualizarCategoriaView();
                     categoriaController.GuardarCategoriasBin("categorias.bin");
+                    categoriaController.GuardarCategoriasJSON("categorias.json");
                     break;
                 case 4:
                     Console.Clear();
                     RemoverCategoriaView();
                     categoriaController.GuardarCategoriasBin("categorias.bin");
+                    categoriaController.GuardarCategoriasJSON("categorias.json");
                     break;
                 case 5:
                     Console.Clear();

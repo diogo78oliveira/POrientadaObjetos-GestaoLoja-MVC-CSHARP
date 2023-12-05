@@ -71,11 +71,13 @@ namespace TP_POO.Views
                     Console.Clear();
                     AtualizarMarcaView();
                     marcaController.GuardarMarcasBin("marcas.bin");
+                    marcaController.GuardaMarcasJSON("marcas.json");
                     break;
                 case 4:
                     Console.Clear();
                     RemoverMarcaView();
                     marcaController.GuardarMarcasBin("marcas.bin");
+                    marcaController.GuardaMarcasJSON("marcas.json");
                     break;
                 case 5:
                     Console.Clear();

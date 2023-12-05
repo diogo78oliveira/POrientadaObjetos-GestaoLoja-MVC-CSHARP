@@ -72,11 +72,13 @@ namespace TP_POO.Views
                     Console.Clear();
                     AtualizarClienteView();
                     clienteController.GuardarClientesBin("clientes.bin");
+                    clienteController.GuardarClientesJSON("clientes.json");
                     break;
                 case 4:
                     Console.Clear();
                     RemoverClienteView();
                     clienteController.GuardarClientesBin("clientes.bin");
+                    clienteController.GuardarClientesJSON("clientes.json");
                     break;
                 case 5:
                     Console.Clear();
