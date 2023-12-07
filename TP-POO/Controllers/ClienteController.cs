@@ -150,11 +150,17 @@ namespace TP_POO.Controllers
         {
             try
             {
+                JsonSerializerOptions options = new JsonSerializerOptions //Cria o objeto JsonSerializerOptions para configurar o processo de serealizaçao em json
+                {
+                    Encoder = System.Text.Encodings.Web.JavaScriptEncoder.UnsafeRelaxedJsonEscaping, //Permite uso de caracteres especiais
+                    WriteIndented = true //Permite a formataçao com quebras de linha para ficar mais facilmente legivel
+                };
+
                 using (StreamWriter writer = new StreamWriter(fileName))
                 {
                     foreach (var cliente in clientes)
                     {
-                        string json = JsonSerializer.Serialize(cliente);
+                        string json = JsonSerializer.Serialize(cliente, options);
                         writer.WriteLine(json);
                     }
                 }

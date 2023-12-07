@@ -146,18 +146,24 @@ namespace TP_POO.Controllers
                 {
                     return false;
                 }
-            }
+            } 
             return false;
         }
         public bool GuardarCategoriasJSON(string fileName)
         {
             try
             {
+                JsonSerializerOptions options = new JsonSerializerOptions //Cria o objeto JsonSerializerOptions para configurar o processo de serealizaçao em json
+                {
+                    Encoder = System.Text.Encodings.Web.JavaScriptEncoder.UnsafeRelaxedJsonEscaping, //Permite uso de caracteres especiais
+                    WriteIndented = true //Permite a formataçao com quebras de linha para ficar mais facilmente legivel
+                };
+
                 using (StreamWriter writer = new StreamWriter(fileName))
                 {
                     foreach (var categoria in categorias)
                     {
-                        string json = JsonSerializer.Serialize(categoria);
+                        string json = JsonSerializer.Serialize(categoria, options);
                         writer.WriteLine(json);
                     }
                 }

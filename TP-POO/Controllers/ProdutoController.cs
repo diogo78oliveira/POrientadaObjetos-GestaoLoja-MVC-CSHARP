@@ -146,27 +146,34 @@ namespace TP_POO.Controllers
             }
             return false;
         }
-        public bool GuardaProdutosJSON(string fileName)
+public bool GuardaProdutosJSON(string fileName)
+{
+    try
+    {
+        JsonSerializerOptions options = new JsonSerializerOptions //Cria o objeto JsonSerializerOptions para configurar o processo de serealizaçao em json
         {
-            try
-            {
-                using (StreamWriter writer = new StreamWriter(fileName))
-                {
-                    foreach (var produto in produtos)
-                    {
-                        string json = JsonSerializer.Serialize(produto);
-                        writer.WriteLine(json);
-                    }
-                }
+            Encoder = System.Text.Encodings.Web.JavaScriptEncoder.UnsafeRelaxedJsonEscaping, //Permite uso de caracteres especiais
+            WriteIndented = true //Permite a formataçao com quebras de linha para ficar mais facilmente legivel
+        };
 
-                return true;
-            }
-            catch (Exception ex)
+        using (StreamWriter writer = new StreamWriter(fileName))
+        {
+            foreach (var produto in produtos)
             {
-                Console.WriteLine($"Erro: {ex.Message}");
-                return false;
+                string json = JsonSerializer.Serialize(produto, options);
+                writer.WriteLine(json);
             }
         }
+
+        return true;
+    }
+    catch (Exception ex)
+    {
+        Console.WriteLine($"Erro: {ex.Message}");
+        return false;
+    }
+}
+
 
 
         #endregion
