@@ -112,7 +112,7 @@ namespace TP_POO.Views
                 string descricao = Console.ReadLine();
 
                 Console.WriteLine("Insira o preço do produto: ");
-                if (double.TryParse(Console.ReadLine(), out double preco))
+                if (double.TryParse(Console.ReadLine(), out double preco))  
                 {
                     Console.WriteLine("Insira o stock do produto: ");
                     if (int.TryParse(Console.ReadLine(), out int stock))
@@ -273,17 +273,25 @@ namespace TP_POO.Views
                         Console.WriteLine("Novo preço inválido");
                     }
                     break;
-                case 4: 
+                case 4:
                     Console.Clear();
-                    Console.WriteLine("Insira o novo stock do produto: ");
-                    if(int.TryParse(Console.ReadLine(), out int novoStock))
+                    Console.WriteLine("Insira a quantidade que deseja adicionar ao stock do produto: ");
+
+                    if (int.TryParse(Console.ReadLine(), out int novoStock))
                     {
-                        produtoExistente.Stock += novoStock;
-                        Console.WriteLine("Stock do produto atualizado com sucesso");
+                        if (novoStock > 0)
+                        {
+                            produtoExistente.Stock += novoStock;
+                            Console.WriteLine("Stock do produto atualizado com sucesso");
+                        }
+                        else
+                        {
+                            Console.WriteLine("Insira um número positivo.");
+                        }
                     }
                     else
                     {
-                        Console.WriteLine("Novo stock inválido");
+                        Console.WriteLine("Stock inválido.");
                     }
                     break;
                 case 5:

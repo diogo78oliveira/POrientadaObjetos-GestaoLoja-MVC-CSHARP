@@ -1,13 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "Es1EmLeSCwDr3i4AAmbHblCBG2zkICVWNgBEdUHmS06gCEe1gdFeufEO+pNRQ9KXoGnoYZlHAOYnRiKGllEB/g==",
+  "dgSpecHash": "4oa6m5O63Lb5Vn1++5bvDnp4DVXBy/1LZMCJ2TCMTrTGn2qslFb8kxx1oPh+3cgzCDaMhBc7NUKzDAgu2W5MGQ==",
   "success": true,
   "projectFilePath": "C:\\Users\\diogo\\Documents\\GitHub\\TP-POO\\TP-POO\\TP-POO.csproj",
-  "expectedPackageFiles": [
-    "C:\\Users\\diogo\\.nuget\\packages\\microsoft.windowsdesktop.app.ref\\6.0.25\\microsoft.windowsdesktop.app.ref.6.0.25.nupkg.sha512",
-    "C:\\Users\\diogo\\.nuget\\packages\\microsoft.netcore.app.ref\\6.0.25\\microsoft.netcore.app.ref.6.0.25.nupkg.sha512",
-    "C:\\Users\\diogo\\.nuget\\packages\\microsoft.aspnetcore.app.ref\\6.0.25\\microsoft.aspnetcore.app.ref.6.0.25.nupkg.sha512",
-    "C:\\Users\\diogo\\.nuget\\packages\\microsoft.netcore.app.host.win-x64\\6.0.25\\microsoft.netcore.app.host.win-x64.6.0.25.nupkg.sha512"
-  ],
+  "expectedPackageFiles": [],
   "logs": []
 }
