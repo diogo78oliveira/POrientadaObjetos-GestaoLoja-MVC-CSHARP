@@ -1,4 +1,15 @@
-﻿using System;
+﻿/*
+ * @file CategoriaController.cs
+ * @author Marcos Vasconcelos (a18568@alunos.ipca.pt)
+ * @author Diogo Oliveira (a20468@alunos.ipca.pt)
+ * @brief
+ * @date dezembro 2023
+ * 
+ * @copyright Copyright (c) 2023
+ * 
+ */
+
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Net.Http.Headers;
@@ -24,11 +35,11 @@ namespace TP_POO.Controllers
         #region Methods
 
         /// <summary>
-        /// Método para encontrar uma categoria através do seu ID
+        /// Método para encontrar uma categoria através do seu id
         /// </summary>
         /// <param name="id"></param>
         /// <returns></returns>
-        public Categoria findCategoriaById(int id)
+        public Categoria EncontrarCategoriaPorId(int id)
         {
             return categorias.Find(c => c.IdCategoria == id);
         }
@@ -70,7 +81,7 @@ namespace TP_POO.Controllers
         /// <returns></returns>
         public bool AtualizarCategoriaController(Categoria categoriaAtualizada)
         {
-            Categoria categoriaExistente = findCategoriaById(categoriaAtualizada.IdCategoria);
+            Categoria categoriaExistente = EncontrarCategoriaPorId(categoriaAtualizada.IdCategoria);
 
             if (categoriaExistente != null)
             {
@@ -92,7 +103,7 @@ namespace TP_POO.Controllers
         /// <returns></returns>
         public bool RemoverCategoriaController(int id)
         {
-            Categoria categoriaExistente = findCategoriaById(id);
+            Categoria categoriaExistente = EncontrarCategoriaPorId(id);
 
                 if (categoriaExistente != null)
                 {
@@ -103,7 +114,7 @@ namespace TP_POO.Controllers
         }
 
         /// <summary>
-        /// Método para guardas as categorias num ficheiro binário
+        /// Método para guardar as categorias num ficheiro binário
         /// </summary>
         /// <param name="fileName"></param>
         /// <returns></returns>
@@ -149,14 +160,20 @@ namespace TP_POO.Controllers
             } 
             return false;
         }
+
+        /// <summary>
+        /// Método para guardar as categorias num ficheiro JSON
+        /// </summary>
+        /// <param name="fileName"></param>
+        /// <returns></returns>
         public bool GuardarCategoriasJSON(string fileName)
         {
             try
             {
-                JsonSerializerOptions options = new JsonSerializerOptions //Cria o objeto JsonSerializerOptions para configurar o processo de serealizaçao em json
+                JsonSerializerOptions options = new JsonSerializerOptions 
                 {
-                    Encoder = System.Text.Encodings.Web.JavaScriptEncoder.UnsafeRelaxedJsonEscaping, //Permite uso de caracteres especiais
-                    WriteIndented = true //Permite a formataçao com quebras de linha para ficar mais facilmente legivel
+                    Encoder = System.Text.Encodings.Web.JavaScriptEncoder.UnsafeRelaxedJsonEscaping, 
+                    WriteIndented = true 
                 };
 
                 using (StreamWriter writer = new StreamWriter(fileName))
@@ -176,7 +193,6 @@ namespace TP_POO.Controllers
                 return false;
             }
         }
-
 
         #endregion
     }

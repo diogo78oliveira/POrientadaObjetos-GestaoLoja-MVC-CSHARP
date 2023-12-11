@@ -1,4 +1,15 @@
-﻿using System;
+﻿/*
+ * @file MarcaController.cs
+ * @author Marcos Vasconcelos (a18568@alunos.ipca.pt)
+ * @author Diogo Oliveira (a20468@alunos.ipca.pt)
+ * @brief
+ * @date dezembro 2023
+ * 
+ * @copyright Copyright (c) 2023
+ * 
+ */
+
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Net.Http.Headers;
@@ -23,11 +34,11 @@ namespace TP_POO.Controllers
         #region Methods
 
         /// <summary>
-        /// Método para encontrar uma categoria através do seu ID
+        /// Método para encontrar uma categoria através do seu id
         /// </summary>
         /// <param name="id"></param>
         /// <returns></returns>
-        public Marca findMarcaById(int id)
+        public Marca EncontraMarcaPorId(int id)
         {
             return marcas.Find(m => m.IdMarca == id);
         }
@@ -69,7 +80,7 @@ namespace TP_POO.Controllers
         /// <returns></returns>
         public bool AtualizarMarcaController(Marca marcaAtualizada)
         {
-            Marca marcaExistente = findMarcaById(marcaAtualizada.IdMarca);
+            Marca marcaExistente = EncontraMarcaPorId(marcaAtualizada.IdMarca);
 
             if (marcaExistente != null)
             {
@@ -91,7 +102,7 @@ namespace TP_POO.Controllers
         /// <returns></returns>
         public bool RemoverMarcaController(int id)
         {
-            Marca marcaExistente = findMarcaById(id);
+            Marca marcaExistente = EncontraMarcaPorId(id);
 
             if (marcaExistente != null)
             {
@@ -148,14 +159,20 @@ namespace TP_POO.Controllers
             }
             return false;
         }
-        public bool GuardaMarcasJSON(string fileName)
+
+        /// <summary>
+        /// Método para guardar as marcas num ficheiro JSON
+        /// </summary>
+        /// <param name="fileName"></param>
+        /// <returns></returns>
+        public bool GuardarMarcasJSON(string fileName)
         {
             try
             {
-                JsonSerializerOptions options = new JsonSerializerOptions //Cria o objeto JsonSerializerOptions para configurar o processo de serealizaçao em json
+                JsonSerializerOptions options = new JsonSerializerOptions 
                 {
-                    Encoder = System.Text.Encodings.Web.JavaScriptEncoder.UnsafeRelaxedJsonEscaping, //Permite uso de caracteres especiais
-                    WriteIndented = true //Permite a formataçao com quebras de linha para ficar mais facilmente legivel
+                    Encoder = System.Text.Encodings.Web.JavaScriptEncoder.UnsafeRelaxedJsonEscaping, 
+                    WriteIndented = true
                 };
 
                 using (StreamWriter writer = new StreamWriter(fileName))

@@ -1,4 +1,15 @@
-﻿using System;
+﻿/*
+ * @file EncomendaView.cs
+ * @author Marcos Vasconcelos (a18568@alunos.ipca.pt)
+ * @author Diogo Oliveira (a20468@alunos.ipca.pt)
+ * @brief
+ * @date dezembro 2023
+ * 
+ * @copyright Copyright (c) 2023
+ * 
+ */
+
+using System;
 using System.Collections.Generic;
 using TP_POO.Controllers;
 using TP_POO.Models;
@@ -18,6 +29,15 @@ namespace TP_POO.Views
 
         #region Constructor
 
+        /// <summary>
+        /// Construtor da classe EncomendaView
+        /// Inicializa instâncias das classes associando-as aos respetivos controllers
+        /// Carrega as encomendas a partir do ficheiro binário
+        /// </summary>
+        /// <param name="encomendaController"></param>
+        /// <param name="produtoController"></param>
+        /// <param name="clienteController"></param>
+        /// <param name="colaboradorController"></param>
         public EncomendaView(EncomendaController encomendaController, ProdutoController produtoController, ClienteController clienteController, ColaboradorController colaboradorController)
         {
             this.encomendaController = encomendaController;
@@ -33,6 +53,9 @@ namespace TP_POO.Views
 
         #region Menu Encomenda
 
+        /// <summary>
+        /// Método para mostrar o menu de encomendas
+        /// </summary>
         public void MenuEncomenda()
         {
             int opcao;
@@ -56,6 +79,10 @@ namespace TP_POO.Views
             } while (opcao != 4);
         }
 
+        /// <summary>
+        /// Método para lidar com a opção selecionada no menu de encomendas
+        /// </summary>
+        /// <param name="opcao"></param>
         private void Opcao(int opcao)
         {
             switch (opcao)
@@ -65,6 +92,7 @@ namespace TP_POO.Views
                     AdicionarEncomendaView();
                     encomendaController.GuardarEncomendasBin("encomendas.bin");
                     produtoController.GuardarProdutosBin("produtos.bin");
+                    produtoController.GuardarProdutosJSON("produtos.json");
                     break;
                 case 2:
                     Console.Clear();
@@ -96,8 +124,8 @@ namespace TP_POO.Views
                 Console.WriteLine("Insira o ID do colaborador: ");
                 if (int.TryParse(Console.ReadLine(), out int idColaborador))
                 {
-                    Cliente cliente = clienteController.findClienteById(idCliente);
-                    Colaborador colaborador = colaboradorController.findColaboradorById(idColaborador);
+                    Cliente cliente = clienteController.EncontrarClientePorId(idCliente);
+                    Colaborador colaborador = colaboradorController.EncontrarColaboradorPorId(idColaborador);
 
                     if (cliente != null && colaborador != null)
                     {
@@ -140,7 +168,7 @@ namespace TP_POO.Views
                 Console.WriteLine("Insira o ID do produto: ");
                 if (int.TryParse(Console.ReadLine(), out int idProduto))
                 {
-                    Produto produtoExistente = produtoController.findProdutoById(idProduto);
+                    Produto produtoExistente = produtoController.EncontraProdutoPorId(idProduto);
 
                     if (produtoExistente != null)
                     {

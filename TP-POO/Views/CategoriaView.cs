@@ -1,4 +1,15 @@
-﻿using System;
+﻿/*
+ * @file CategoriaView.cs
+ * @author Marcos Vasconcelos (a18568@alunos.ipca.pt)
+ * @author Diogo Oliveira (a20468@alunos.ipca.pt)
+ * @brief
+ * @date dezembro 2023
+ * 
+ * @copyright Copyright (c) 2023
+ * 
+ */
+
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -20,6 +31,12 @@ namespace TP_POO.Views
 
         #region Constructor
 
+        /// <summary>
+        /// Construtor da classe CategoriaView
+        /// Inicializa uma nova instância de classe associando-a ao controller
+        /// Carrega as categorias a partir do ficheiro binário
+        /// </summary>
+        /// <param name="controller"></param>
         public CategoriaView(CategoriaController controller)
         {
             categoriaController = controller;
@@ -29,6 +46,10 @@ namespace TP_POO.Views
         #endregion
 
         #region Menu Categoria
+
+        /// <summary>
+        /// Método para mostrar o menu de categorias
+        /// </summary>
         public void MenuCategoria()
         {
             int op;
@@ -53,6 +74,10 @@ namespace TP_POO.Views
             } while (op != 5);
         }
 
+        /// <summary>
+        /// Método para lidar com a opção selecionada no menu de categorias
+        /// </summary>
+        /// <param name="op"></param>
         private void Opcao(int op)
         {
             switch (op)
@@ -151,7 +176,7 @@ namespace TP_POO.Views
             Console.WriteLine("Insira o ID da categoria para atualizar: ");
             if (int.TryParse(Console.ReadLine(), out int id))
             {
-                Categoria categoriaExistente = categoriaController.findCategoriaById(id);
+                Categoria categoriaExistente = categoriaController.EncontrarCategoriaPorId(id);
 
                 if (categoriaExistente != null)
                 {
@@ -188,7 +213,7 @@ namespace TP_POO.Views
             Console.Write("Insira o ID da categoria que deseja excluir: ");
             int id = int.Parse(Console.ReadLine());
 
-            Categoria categoriaExistente = categoriaController.findCategoriaById(id);
+            Categoria categoriaExistente = categoriaController.EncontrarCategoriaPorId(id);
 
             if (categoriaExistente != null)
             {

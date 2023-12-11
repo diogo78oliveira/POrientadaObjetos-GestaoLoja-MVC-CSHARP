@@ -1,4 +1,15 @@
-﻿using System;
+﻿/*
+ * @file ClienteView.cs
+ * @author Marcos Vasconcelos (a18568@alunos.ipca.pt)
+ * @author Diogo Oliveira (a20468@alunos.ipca.pt)
+ * @brief
+ * @date dezembro 2023
+ * 
+ * @copyright Copyright (c) 2023
+ * 
+ */
+
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -20,6 +31,12 @@ namespace TP_POO.Views
 
         #region Constructor
 
+        /// <summary>
+        /// Construtor da classe ClienteView
+        /// Inicializa uma nova instância de classe associando-a ao controller
+        /// Carrega os clientes a partir do ficheiro binário
+        /// </summary>
+        /// <param name="controller"></param>
         public ClienteView(ClienteController controller)
         {
             clienteController = controller;
@@ -30,6 +47,9 @@ namespace TP_POO.Views
 
         #region Menu Cliente
 
+        /// <summary>
+        /// Método para mostrar o menu de clientes
+        /// </summary>
         public void MenuCliente()
         {
             int op;
@@ -54,6 +74,10 @@ namespace TP_POO.Views
             } while (op != 5);
         }
 
+        /// <summary>
+        /// Método para lidar com a opção selecionada no menu de clientes
+        /// </summary>
+        /// <param name="op"></param>
         private void Opcao(int op)
         {
             switch (op)
@@ -166,7 +190,7 @@ namespace TP_POO.Views
             Console.WriteLine("Insira o ID do cliente para atualizar: ");
             if(int.TryParse(Console.ReadLine(), out int id))
             {
-                Cliente clienteExistente = clienteController.findClienteById(id);
+                Cliente clienteExistente = clienteController.EncontrarClientePorId(id);
 
                 if(clienteExistente != null)
                 {
@@ -204,7 +228,7 @@ namespace TP_POO.Views
         /// <param name="opAtualizarCliente"></param>
         private void AtualizarCamposCliente(int id, int opAtualizarCliente)
         {
-            Cliente clienteExistente = clienteController.findClienteById(id);
+            Cliente clienteExistente = clienteController.EncontrarClientePorId(id);
 
             switch (opAtualizarCliente)
             {
@@ -246,7 +270,7 @@ namespace TP_POO.Views
             Console.WriteLine("Insira o ID do cliente que deseja excluir: ");
             int id = int.Parse(Console.ReadLine());
 
-            Cliente clienteExistente = clienteController.findClienteById(id);
+            Cliente clienteExistente = clienteController.EncontrarClientePorId(id);
 
             if (clienteExistente != null)
             {

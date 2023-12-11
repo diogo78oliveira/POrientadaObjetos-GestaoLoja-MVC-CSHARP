@@ -1,4 +1,15 @@
-﻿using System;
+﻿/*
+ * @file ClienteController.cs
+ * @author Marcos Vasconcelos (a18568@alunos.ipca.pt)
+ * @author Diogo Oliveira (a20468@alunos.ipca.pt)
+ * @brief
+ * @date dezembro 2023
+ * 
+ * @copyright Copyright (c) 2023
+ * 
+ */
+
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Runtime.Serialization.Formatters.Binary;
@@ -22,11 +33,11 @@ namespace TP_POO.Controllers
         #region Methods
 
         /// <summary>
-        /// Método para encontrar um cliente através do seu ID
+        /// Método para encontrar um cliente através do seu id
         /// </summary>
         /// <param name="id"></param>
         /// <returns></returns>
-        public Cliente findClienteById(int id)
+        public Cliente EncontrarClientePorId(int id)
         {
             return clientes.Find(c => c.IdCliente == id);
         }
@@ -68,7 +79,7 @@ namespace TP_POO.Controllers
         /// <returns></returns>
         public bool AtualizarClienteController(Cliente clienteAtualizado)
         {
-            Cliente clienteExistente = findClienteById(clienteAtualizado.IdCliente);
+            Cliente clienteExistente = EncontrarClientePorId(clienteAtualizado.IdCliente);
 
             if(clienteExistente != null)
             {
@@ -89,7 +100,7 @@ namespace TP_POO.Controllers
         /// <returns></returns>
         public bool RemoverClienteController(int id)
         {
-            Cliente clienteExistente = findClienteById(id);
+            Cliente clienteExistente = EncontrarClientePorId(id);
 
             if(clienteExistente != null)
             {
@@ -146,14 +157,20 @@ namespace TP_POO.Controllers
             }
             return false;
         }
+
+        /// <summary>
+        /// Método para guardar os clientes num ficheiro JSON
+        /// </summary>
+        /// <param name="fileName"></param>
+        /// <returns></returns>
         public bool GuardarClientesJSON(string fileName)
         {
             try
             {
-                JsonSerializerOptions options = new JsonSerializerOptions //Cria o objeto JsonSerializerOptions para configurar o processo de serealizaçao em json
+                JsonSerializerOptions options = new JsonSerializerOptions 
                 {
-                    Encoder = System.Text.Encodings.Web.JavaScriptEncoder.UnsafeRelaxedJsonEscaping, //Permite uso de caracteres especiais
-                    WriteIndented = true //Permite a formataçao com quebras de linha para ficar mais facilmente legivel
+                    Encoder = System.Text.Encodings.Web.JavaScriptEncoder.UnsafeRelaxedJsonEscaping, 
+                    WriteIndented = true 
                 };
 
                 using (StreamWriter writer = new StreamWriter(fileName))
@@ -173,6 +190,7 @@ namespace TP_POO.Controllers
                 return false;
             }
         }
+
         #endregion
     }
 }

@@ -1,4 +1,15 @@
-﻿using System;
+﻿/*
+ * @file MarcaView.cs
+ * @author Marcos Vasconcelos (a18568@alunos.ipca.pt)
+ * @author Diogo Oliveira (a20468@alunos.ipca.pt)
+ * @brief
+ * @date dezembro 2023
+ * 
+ * @copyright Copyright (c) 2023
+ * 
+ */
+
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -20,6 +31,12 @@ namespace TP_POO.Views
 
         #region Constructor
 
+        /// <summary>
+        /// Construtor da classe MarcaView
+        /// Inicializa uma nova instância de classe associando-a ao controller
+        /// Carrega as marcas a partir do ficheiro binário
+        /// </summary>
+        /// <param name="controller"></param>
         public MarcaView(MarcaController controller)
         {
             marcaController = controller;
@@ -29,6 +46,10 @@ namespace TP_POO.Views
         #endregion
 
         #region Menu Marca
+
+        /// <summary>
+        /// Método para mostrar o menu de marcas
+        /// </summary>
         public void MenuMarca()
         {
             int op;
@@ -53,6 +74,10 @@ namespace TP_POO.Views
             } while (op != 5);
         }
 
+        /// <summary>
+        /// Método para lidar com a opção selecionada no menu de marcas
+        /// </summary>
+        /// <param name="op"></param>
         private void Opcao(int op)
         {
             switch (op)
@@ -61,7 +86,7 @@ namespace TP_POO.Views
                     Console.Clear();
                     AdicionarMarcaView();
                     marcaController.GuardarMarcasBin("marcas.bin");
-                    marcaController.GuardaMarcasJSON("marcas.json");
+                    marcaController.GuardarMarcasJSON("marcas.json");
                     break;
                 case 2:
                     Console.Clear();
@@ -71,13 +96,13 @@ namespace TP_POO.Views
                     Console.Clear();
                     AtualizarMarcaView();
                     marcaController.GuardarMarcasBin("marcas.bin");
-                    marcaController.GuardaMarcasJSON("marcas.json");
+                    marcaController.GuardarMarcasJSON("marcas.json");
                     break;
                 case 4:
                     Console.Clear();
                     RemoverMarcaView();
                     marcaController.GuardarMarcasBin("marcas.bin");
-                    marcaController.GuardaMarcasJSON("marcas.json");
+                    marcaController.GuardarMarcasJSON("marcas.json");
                     break;
                 case 5:
                     Console.Clear();
@@ -151,7 +176,7 @@ namespace TP_POO.Views
             Console.WriteLine("Insira o ID da marca para atualizar: ");
             if (int.TryParse(Console.ReadLine(), out int id))
             {
-                Marca marcaExistente = marcaController.findMarcaById(id);
+                Marca marcaExistente = marcaController.EncontraMarcaPorId(id);
 
                 if (marcaExistente != null)
                 {
@@ -188,7 +213,7 @@ namespace TP_POO.Views
             Console.Write("Insira o ID da marca que deseja excluir: ");
             int id = int.Parse(Console.ReadLine());
 
-            Marca marcaExistente = marcaController.findMarcaById(id);
+            Marca marcaExistente = marcaController.EncontraMarcaPorId(id);
 
             if (marcaExistente != null)
             {

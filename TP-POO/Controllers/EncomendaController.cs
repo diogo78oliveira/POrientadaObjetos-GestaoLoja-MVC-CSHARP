@@ -1,4 +1,16 @@
-﻿using System;
+﻿/*
+ * @file EncomendaController.cs
+ * @author Marcos Vasconcelos (a18568@alunos.ipca.pt)
+ * @author Diogo Oliveira (a20468@alunos.ipca.pt)
+ * @brief
+ * @date dezembro 2023
+ * 
+ * @copyright Copyright (c) 2023
+ * 
+ */
+
+
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Runtime.Serialization.Formatters.Binary;
@@ -18,11 +30,21 @@ namespace TP_POO.Controllers
 
         #region Methods
 
-        public Encomenda FindEncomendaById(int id)
+        /// <summary>
+        /// Método para encontrar uma encomenda através do seu id
+        /// </summary>
+        /// <param name="id"></param>
+        /// <returns></returns>
+        public Encomenda EncontraEncomendaPorId(int id)
         {
             return encomendas.Find(e => e.IdEncomenda == id);
         }
 
+        /// <summary>
+        /// Método para adicionar uma nova encomenda
+        /// </summary>
+        /// <param name="novaEncomenda"></param>
+        /// <returns></returns>
         public bool AdicionarEncomendaController(Encomenda novaEncomenda)
         {
             if (encomendas.Any(e => e.IdEncomenda == novaEncomenda.IdEncomenda))
@@ -38,14 +60,23 @@ namespace TP_POO.Controllers
             return true;
         }
 
+        /// <summary>
+        /// Método para listar as encomendas existentes
+        /// </summary>
+        /// <returns></returns>
         public List<Encomenda> ListarEncomendasController()
         {
             return encomendas;
         }
 
+        /// <summary>
+        /// Método para remover uma encomenda
+        /// </summary>
+        /// <param name="id"></param>
+        /// <returns></returns>
         public bool RemoverEncomendaController(int id)
         {
-            Encomenda encomendaExistente = FindEncomendaById(id);
+            Encomenda encomendaExistente = EncontraEncomendaPorId(id);
 
             if(encomendaExistente != null)
             {
@@ -55,6 +86,11 @@ namespace TP_POO.Controllers
             return false;
         }
 
+        /// <summary>
+        /// Método para guardar as encomendas num ficheiro binário
+        /// </summary>
+        /// <param name="fileName"></param>
+        /// <returns></returns>
         public bool GuardarEncomendasBin(string fileName)
         {
             try
@@ -73,6 +109,11 @@ namespace TP_POO.Controllers
             }
         }
 
+        /// <summary>
+        /// Método para carregar as encomendas a partir de um ficheiro binário
+        /// </summary>
+        /// <param name="fileName"></param>
+        /// <returns></returns>
         public bool CarregarEncomendasBin(string fileName)
         {
             if (File.Exists(fileName))

@@ -1,4 +1,15 @@
-﻿using System;
+﻿/*
+ * @file ColaboradorController.cs
+ * @author Marcos Vasconcelos (a18568@alunos.ipca.pt)
+ * @author Diogo Oliveira (a20468@alunos.ipca.pt)
+ * @brief
+ * @date dezembro 2023
+ * 
+ * @copyright Copyright (c) 2023
+ * 
+ */
+
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Runtime.Serialization.Formatters.Binary;
@@ -22,11 +33,11 @@ namespace TP_POO.Controllers
         #region Methods
 
         /// <summary>
-        /// Método para encontrar um colaborador através do seu ID
+        /// Método para encontrar um colaborador através do seu id
         /// </summary>
         /// <param name="id"></param>
         /// <returns></returns>
-        public Colaborador findColaboradorById(int id)
+        public Colaborador EncontrarColaboradorPorId(int id)
         {
             return colaboradores.Find(c => c.IdColaborador == id);
         }
@@ -59,7 +70,7 @@ namespace TP_POO.Controllers
         /// <returns></returns>
         public bool AtualizarColaboradorController(Colaborador colaboradorAtualizado)
         {
-            Colaborador colaboradorExistente = findColaboradorById(colaboradorAtualizado.IdColaborador);
+            Colaborador colaboradorExistente = EncontrarColaboradorPorId(colaboradorAtualizado.IdColaborador);
 
             if(colaboradorExistente != null)
             {
@@ -89,7 +100,7 @@ namespace TP_POO.Controllers
         /// <returns></returns>
         public bool RemoverColaboradorController(int id)
         {
-            Colaborador colaboradorExistente = findColaboradorById(id);
+            Colaborador colaboradorExistente = EncontrarColaboradorPorId(id);
 
             if( colaboradorExistente != null )
             {
@@ -146,14 +157,20 @@ namespace TP_POO.Controllers
             }
             return false;
         }
+
+        /// <summary>
+        /// Método para guardar os colaboradores num ficheiro JSON
+        /// </summary>
+        /// <param name="fileName"></param>
+        /// <returns></returns>
         public bool GuardarColaboradoresJSON(string fileName)
         {
             try
             {
-                JsonSerializerOptions options = new JsonSerializerOptions //Cria o objeto JsonSerializerOptions para configurar o processo de serealizaçao em json
+                JsonSerializerOptions options = new JsonSerializerOptions
                 {
-                    Encoder = System.Text.Encodings.Web.JavaScriptEncoder.UnsafeRelaxedJsonEscaping, //Permite uso de caracteres especiais
-                    WriteIndented = true //Permite a formataçao com quebras de linha para ficar mais facilmente legivel
+                    Encoder = System.Text.Encodings.Web.JavaScriptEncoder.UnsafeRelaxedJsonEscaping,
+                    WriteIndented = true 
                 };
 
                 using (StreamWriter writer = new StreamWriter(fileName))

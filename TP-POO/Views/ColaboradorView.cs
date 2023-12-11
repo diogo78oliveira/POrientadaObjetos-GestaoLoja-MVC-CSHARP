@@ -1,4 +1,15 @@
-﻿using System;
+﻿/*
+ * @file ColaboradorView.cs
+ * @author Marcos Vasconcelos (a18568@alunos.ipca.pt)
+ * @author Diogo Oliveira (a20468@alunos.ipca.pt)
+ * @brief
+ * @date dezembro 2023
+ * 
+ * @copyright Copyright (c) 2023
+ * 
+ */
+
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -20,6 +31,12 @@ namespace TP_POO.Views
 
         #region Constructor
 
+        /// <summary>
+        /// Construtor da classe ColaboradorView
+        /// Inicializa uma nova instância de classe associando-a ao controller
+        /// Carrega os colaboradores a partir do ficheiro binário
+        /// </summary>
+        /// <param name="controller"></param>
         public ColaboradorView(ColaboradorController controller)
         {
             colaboradorController = controller;
@@ -30,6 +47,9 @@ namespace TP_POO.Views
 
         #region Menu Colaborador
 
+        /// <summary>
+        /// Método para mostrar o menu de colaboradores
+        /// </summary>
         public void MenuColaborador()
         {
             int op;
@@ -54,6 +74,10 @@ namespace TP_POO.Views
             } while (op != 5);
         }
 
+        /// <summary>
+        /// Método para lidar com a opção selecionada no menu de colaboradores
+        /// </summary>
+        /// <param name="op"></param>
         private void Opcao(int op)
         {
             switch (op)
@@ -165,7 +189,7 @@ namespace TP_POO.Views
             Console.WriteLine("Insira o ID do colaborador para atualizar: ");
             if (int.TryParse(Console.ReadLine(), out int id))
             {
-                Colaborador colaboradorExistente = colaboradorController.findColaboradorById(id);
+                Colaborador colaboradorExistente = colaboradorController.EncontrarColaboradorPorId(id);
 
                 if( colaboradorExistente != null)
                 {
@@ -203,7 +227,7 @@ namespace TP_POO.Views
         /// <param name="opAtualizarColaborador"></param>
         private void AtualizarCamposColaborador(int id, int opAtualizarColaborador)
         {
-            Colaborador colaboradorExistente = colaboradorController.findColaboradorById(id);
+            Colaborador colaboradorExistente = colaboradorController.EncontrarColaboradorPorId(id);
 
             switch(opAtualizarColaborador)
             {
@@ -245,7 +269,7 @@ namespace TP_POO.Views
             Console.WriteLine("Insira o ID do colaborador que deseja excluir: ");
             int id = int.Parse(Console.ReadLine());
 
-            Colaborador colaboradorExistente = colaboradorController.findColaboradorById(id);
+            Colaborador colaboradorExistente = colaboradorController.EncontrarColaboradorPorId(id);
 
             if (colaboradorExistente != null)
             {

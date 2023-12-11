@@ -1,10 +1,12 @@
 ﻿/*
- * <date>2023</date>
- * <author>Marcos Vasconcelos</author>
- * <email>a18568@alunos.ipca.pt</email>
- * <author>Diogo Oliveira</author>
- * <email>a20468@alunos.ipca.pt</email>
- * <desc>Classe Utilizador</desc>
+ * @file Utilizador.cs
+ * @author Marcos Vasconcelos (a18568@alunos.ipca.pt)
+ * @author Diogo Oliveira (a20468@alunos.ipca.pt)
+ * @brief
+ * @date dezembro 2023
+ * 
+ * @copyright Copyright (c) 2023
+ * 
  */
 
 using System;
@@ -32,7 +34,7 @@ namespace TP_POO
         #region Constructor
 
         /// <summary>
-        /// Construtor de um utilizador ao receber parâmetros
+        /// Construtor de um Utilizador ao receber parâmetros
         /// </summary>
         /// <param name="n"></param>
         /// <param name="m"></param>

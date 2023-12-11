@@ -1,4 +1,15 @@
-﻿using System;
+﻿/*
+ * @file ProdutoController.cs
+ * @author Marcos Vasconcelos (a18568@alunos.ipca.pt)
+ * @author Diogo Oliveira (a20468@alunos.ipca.pt)
+ * @brief
+ * @date dezembro 2023
+ * 
+ * @copyright Copyright (c) 2023
+ * 
+ */
+
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Runtime.Serialization.Formatters.Binary;
@@ -21,11 +32,11 @@ namespace TP_POO.Controllers
         #region Methods
 
         /// <summary>
-        /// Método para encontrar um produto através do seu ID
+        /// Método para encontrar um produto através do seu id
         /// </summary>
         /// <param name="id"></param>
         /// <returns></returns>
-        public Produto findProdutoById(int id)
+        public Produto EncontraProdutoPorId(int id)
         {
             return produtos.Find(p => p.IdProduto == id);
         }
@@ -67,7 +78,7 @@ namespace TP_POO.Controllers
         /// <returns></returns>
         public bool AtualizarProdutoController(Produto produtoAtualizado)
         {
-            Produto produtoExistente = findProdutoById(produtoAtualizado.IdProduto);
+            Produto produtoExistente = EncontraProdutoPorId(produtoAtualizado.IdProduto);
 
             if (produtoExistente != null)
             {
@@ -89,7 +100,7 @@ namespace TP_POO.Controllers
         /// <returns></returns>
         public bool RemoverProdutoController(int id)
         {
-            Produto produtoExistente = findProdutoById(id);
+            Produto produtoExistente = EncontraProdutoPorId(id);
 
             if (produtoExistente != null)
             {
@@ -146,35 +157,39 @@ namespace TP_POO.Controllers
             }
             return false;
         }
-public bool GuardaProdutosJSON(string fileName)
-{
-    try
-    {
-        JsonSerializerOptions options = new JsonSerializerOptions //Cria o objeto JsonSerializerOptions para configurar o processo de serealizaçao em json
-        {
-            Encoder = System.Text.Encodings.Web.JavaScriptEncoder.UnsafeRelaxedJsonEscaping, //Permite uso de caracteres especiais
-            WriteIndented = true //Permite a formataçao com quebras de linha para ficar mais facilmente legivel
-        };
 
-        using (StreamWriter writer = new StreamWriter(fileName))
+        /// <summary>
+        /// Método para guardar os produtos num ficheiro JSON
+        /// </summary>
+        /// <param name="fileName"></param>
+        /// <returns></returns>
+        public bool GuardarProdutosJSON(string fileName)
         {
-            foreach (var produto in produtos)
+            try
             {
-                string json = JsonSerializer.Serialize(produto, options);
-                writer.WriteLine(json);
+                JsonSerializerOptions options = new JsonSerializerOptions //Cria o objeto JsonSerializerOptions para configurar o processo de serealizaçao em json
+                {
+                    Encoder = System.Text.Encodings.Web.JavaScriptEncoder.UnsafeRelaxedJsonEscaping, //Permite uso de caracteres especiais
+                    WriteIndented = true //Permite a formataçao com quebras de linha para ficar mais facilmente legivel
+                };
+
+                using (StreamWriter writer = new StreamWriter(fileName))
+                {
+                    foreach (var produto in produtos)
+                    {
+                        string json = JsonSerializer.Serialize(produto, options);
+                        writer.WriteLine(json);
+                    }
+                }
+
+                return true;
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine($"Erro: {ex.Message}");
+                return false;
             }
         }
-
-        return true;
-    }
-    catch (Exception ex)
-    {
-        Console.WriteLine($"Erro: {ex.Message}");
-        return false;
-    }
-}
-
-
 
         #endregion
     }

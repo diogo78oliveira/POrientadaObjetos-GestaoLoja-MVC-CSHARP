@@ -1,4 +1,15 @@
-﻿using System;
+﻿/*
+ * @file EncomendaModel.cs
+ * @author Marcos Vasconcelos (a18568@alunos.ipca.pt)
+ * @author Diogo Oliveira (a20468@alunos.ipca.pt)
+ * @brief
+ * @date dezembro 2023
+ * 
+ * @copyright Copyright (c) 2023
+ * 
+ */
+
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Net.Http.Headers;
@@ -34,6 +45,11 @@ namespace TP_POO.Models
             CarregarTotalEncomendas();
         }
 
+        /// <summary>
+        /// Construtor de uma Encomenda ao receber parâmetros
+        /// </summary>
+        /// <param name="cli"></param>
+        /// <param name="col"></param>
         public Encomenda(Cliente cli, Colaborador col)
         {
             totalEncomendas++;
@@ -49,31 +65,49 @@ namespace TP_POO.Models
 
         #region Properties
 
+        /// <summary>
+        /// Propriedade para manipular o id da encomenda
+        /// </summary>
         public int IdEncomenda
         {
             get { return idEncomenda; }
-            set { idEncomenda = value; }
         }
 
+        /// <summary>
+        /// Propriedade para manipular a data da encomenda
+        /// </summary>
         public DateTime Data
         {
             get { return data;}
         }
+
+        /// <summary>
+        /// Propriedade para manipular a lista de produtos da encomenda
+        /// </summary>
         public List<Produto> Produtos
         {
             get { return produtos; }
         }
 
+        /// <summary>
+        /// Propriedade para manipular as quantidades da encomenda
+        /// </summary>
         public List<int> Quantidades
         {
             get { return quantidades; }
         }
 
+        /// <summary>
+        /// Propriedade para manipular o total de encomendas
+        /// </summary>
         public int TotalEncomendas
         {
             get { return totalEncomendas; }
         }
 
+        /// <summary>
+        /// Propriedade para manipular o valor total da encomenda
+        /// </summary>
         public double Total
         {
             get { return total; }
@@ -83,6 +117,12 @@ namespace TP_POO.Models
 
         #region Other Methods
 
+        /// <summary>
+        /// Método para adicionar um produto e quantidade a uma encomenda
+        /// </summary>
+        /// <param name="produto"></param>
+        /// <param name="quantidade"></param>
+        /// <returns></returns>
         public bool AdicionarProdutoQuantidade(Produto produto, int quantidade)
         {
             if (quantidade > 0 && quantidade <= produto.Stock)
@@ -99,12 +139,20 @@ namespace TP_POO.Models
             }
         }
 
+        /// <summary>
+        /// Método para guardar o total de encomendas num ficheiro de texto
+        /// </summary>
+        /// <returns></returns>
         private static bool SalvarTotalEncomendas()
         {
             File.WriteAllText("totalEncomendas.txt", totalEncomendas.ToString());
             return true;
         }
 
+        /// <summary>
+        /// Método para carregar o total de encomendas a partir de um ficheiro de texto
+        /// </summary>
+        /// <returns></returns>
         private static bool CarregarTotalEncomendas()
         {
             if (File.Exists("totalEncomendas.txt"))
@@ -123,6 +171,9 @@ namespace TP_POO.Models
 
         #region Destructor
 
+        /// <summary>
+        /// Destrutor por defeito
+        /// </summary>
         ~Encomenda()
         {
         }

@@ -1,4 +1,15 @@
-﻿using System;
+﻿/*
+ * @file ProdutoView.cs
+ * @author Marcos Vasconcelos (a18568@alunos.ipca.pt)
+ * @author Diogo Oliveira (a20468@alunos.ipca.pt)
+ * @brief
+ * @date dezembro 2023
+ * 
+ * @copyright Copyright (c) 2023
+ * 
+ */
+
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -22,6 +33,14 @@ namespace TP_POO.Views
 
         #region Constructor
 
+        /// <summary>
+        /// Construtor da classe ProdutoView
+        /// Inicializa instâncias das classes associando-as aos respetivos controllers
+        /// Carrega os produtos a partir do ficheiro binário
+        /// </summary>
+        /// <param name="produtoController"></param>
+        /// <param name="marcaController"></param>
+        /// <param name="categoriaController"></param>
         public ProdutoView(ProdutoController produtoController, MarcaController marcaController, CategoriaController categoriaController)
         {
             this.produtoController = produtoController;
@@ -34,6 +53,9 @@ namespace TP_POO.Views
 
         #region Menu Produto
 
+        /// <summary>
+        /// Método para mostrar o menu de produtos
+        /// </summary>
         public void MenuProduto()
         {
             int op;
@@ -58,6 +80,10 @@ namespace TP_POO.Views
             } while (op != 5);
         }
 
+        /// <summary>
+        /// Método para lidar com a opção selecionada no menu de produtos
+        /// </summary>
+        /// <param name="op"></param>
         private void Opcao(int op)
         {
             switch (op)
@@ -66,7 +92,7 @@ namespace TP_POO.Views
                     Console.Clear();
                     AdicionarProdutoView();
                     produtoController.GuardarProdutosBin("produtos.bin");
-                    produtoController.GuardaProdutosJSON("produtos.json");
+                    produtoController.GuardarProdutosJSON("produtos.json");
                     break;
                 case 2:
                     Console.Clear();
@@ -76,13 +102,13 @@ namespace TP_POO.Views
                     Console.Clear();
                     AtualizarProdutoView();
                     produtoController.GuardarProdutosBin("produtos.bin");
-                    produtoController.GuardaProdutosJSON("produtos.json");
+                    produtoController.GuardarProdutosJSON("produtos.json");
                     break;
                 case 4:
                     Console.Clear();
                     RemoverProdutoView();
                     produtoController.GuardarProdutosBin("produtos.bin");
-                    produtoController.GuardaProdutosJSON("produtos.json");
+                    produtoController.GuardarProdutosJSON("produtos.json");
                     break;
                 case 5:
                     Console.Clear();
@@ -123,8 +149,8 @@ namespace TP_POO.Views
                             Console.WriteLine("Insira o ID da categoria do produto: ");
                             if (int.TryParse(Console.ReadLine(), out int idCategoria))
                             {
-                                Marca marca = marcaController.findMarcaById(idMarca);
-                                Categoria categoria = categoriaController.findCategoriaById(idCategoria);
+                                Marca marca = marcaController.EncontraMarcaPorId(idMarca);
+                                Categoria categoria = categoriaController.EncontrarCategoriaPorId(idCategoria);
 
                                 if (marca != null && categoria != null)
                                 {
@@ -201,7 +227,7 @@ namespace TP_POO.Views
             Console.WriteLine("Insira o ID do produto para atualizar: ");
             if (int.TryParse(Console.ReadLine(), out int id))
             {
-                Produto produtoExistente = produtoController.findProdutoById(id);
+                Produto produtoExistente = produtoController.EncontraProdutoPorId(id);
 
                 if (produtoExistente != null)
                 {
@@ -242,7 +268,7 @@ namespace TP_POO.Views
         /// <param name="opAtualizarProduto"></param>
         private void AtualizarCamposProduto(int id, int opAtualizarProduto)
         {
-            Produto produtoExistente = produtoController.findProdutoById(id);
+            Produto produtoExistente = produtoController.EncontraProdutoPorId(id);
 
             switch (opAtualizarProduto)
             {
@@ -299,7 +325,7 @@ namespace TP_POO.Views
                     Console.WriteLine("Insira o ID da nova marca do produto: ");
                     if(int.TryParse(Console.ReadLine(), out int novoIdMarca))
                     {
-                        Marca novaMarca = marcaController.findMarcaById(novoIdMarca);
+                        Marca novaMarca = marcaController.EncontraMarcaPorId(novoIdMarca);
                         if (novaMarca != null)
                         {
                             produtoExistente.marca = novaMarca;
@@ -320,7 +346,7 @@ namespace TP_POO.Views
                     Console.WriteLine("Insira o ID da nova categoria do produto: ");
                     if(int.TryParse(Console.ReadLine(), out int novoIdCategoria))
                     {
-                        Categoria novaCategoria = categoriaController.findCategoriaById(novoIdCategoria);
+                        Categoria novaCategoria = categoriaController.EncontrarCategoriaPorId(novoIdCategoria);
                         if(novaCategoria != null)
                         {
                             produtoExistente.categoria = novaCategoria;
@@ -353,7 +379,7 @@ namespace TP_POO.Views
             Console.Write("Insira o ID do produto que deseja excluir: ");
             int id = int.Parse(Console.ReadLine());
 
-            Produto produtoExistente = produtoController.findProdutoById(id);
+            Produto produtoExistente = produtoController.EncontraProdutoPorId(id);
 
             if(produtoExistente != null)
             {
