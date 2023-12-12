@@ -14,7 +14,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("TP-POO")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+08f3739afba8a7f173c3b4aa074db2213103a7c0")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+adf40a0d329958e5c7659be166ce9f6e923b4d5b")]
 [assembly: System.Reflection.AssemblyProductAttribute("TP-POO")]
 [assembly: System.Reflection.AssemblyTitleAttribute("TP-POO")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]

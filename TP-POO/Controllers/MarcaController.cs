@@ -152,8 +152,9 @@ namespace TP_POO.Controllers
                     stream.Close();
                     return true;
                 }
-                catch
+                catch (Exception ex)
                 {
+                    Console.WriteLine($"Erro: {ex.Message}");
                     return false;
                 }
             }
