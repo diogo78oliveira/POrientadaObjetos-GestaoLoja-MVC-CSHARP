@@ -22,8 +22,8 @@ namespace TP_POO.Models
     {
         #region Attributes
 
-        public int idCategoria;
-        public string nome;
+        private int idCategoria;
+        private string nome;
 
         #endregion
 

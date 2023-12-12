@@ -213,7 +213,7 @@ namespace TP_POO.Views
             {
                 foreach (Produto produto in produtos)
                 {
-                    Console.WriteLine($"Produto #{produto.IdProduto}\nNome: {produto.Nome}\nDescrição: {produto.Descricao}\nPreço: {produto.Preco}\nStock: {produto.Stock}\nMarca: {produto.marca.Nome}\nCategoria: {produto.categoria.nome}\n");
+                    Console.WriteLine($"Produto #{produto.IdProduto}\nNome: {produto.Nome}\nDescrição: {produto.Descricao}\nPreço: {produto.Preco}\nStock: {produto.Stock}\nMarca: {produto.marca.Nome}\nCategoria: {produto.categoria.Nome}\n");
                 }
             }
             Console.WriteLine();

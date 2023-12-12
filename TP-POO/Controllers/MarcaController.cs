@@ -34,7 +34,7 @@ namespace TP_POO.Controllers
         #region Methods
 
         /// <summary>
-        /// Método para encontrar uma categoria através do seu id
+        /// Método para encontrar uma marca através do seu id
         /// </summary>
         /// <param name="id"></param>
         /// <returns></returns>
@@ -44,7 +44,7 @@ namespace TP_POO.Controllers
         }
 
         /// <summary>
-        /// Método para adicionar uma nova categoria
+        /// Método para adicionar uma nova marca
         /// </summary>
         /// <param name="novaMarca"></param>
         /// <returns></returns>
@@ -65,7 +65,7 @@ namespace TP_POO.Controllers
         }
 
         /// <summary>
-        /// Método para listar as categorias existentes
+        /// Método para listar as marcas existentes
         /// </summary>
         /// <returns></returns>
         public List<Marca> ListarMarcasController()
@@ -74,7 +74,7 @@ namespace TP_POO.Controllers
         }
 
         /// <summary>
-        /// Método para atualizar uma categoria
+        /// Método para atualizar uma marca
         /// </summary>
         /// <param name="marcaAtualizada"></param>
         /// <returns></returns>
@@ -96,7 +96,7 @@ namespace TP_POO.Controllers
         }
 
         /// <summary>
-        /// Método para remover uma categoria
+        /// Método para remover uma marca
         /// </summary>
         /// <param name="id"></param>
         /// <returns></returns>
@@ -113,7 +113,7 @@ namespace TP_POO.Controllers
         }
 
         /// <summary>
-        /// Método para guardas as marcas num ficheiro binário
+        /// Método para guardar as marcas num ficheiro binário
         /// </summary>
         /// <param name="fileName"></param>
         /// <returns></returns>
