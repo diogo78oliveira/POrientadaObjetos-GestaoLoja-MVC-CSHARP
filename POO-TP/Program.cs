@@ -1,15 +1,14 @@
 ﻿/*
- * <date>2023</date>
- * <author>Marcos Vasconcelos</author>
- * <email>a18568@alunos.ipca.pt</email>
- * <author>Diogo Oliveira</author>
- * <email>a20468@alunos.ipca.pt</email>
- * <desc>Main/Program</desc>
+ * @file Program.cs
+ * @author Marcos Vasconcelos (a18568@alunos.ipca.pt)
+ * @author Diogo Oliveira (a20468@alunos.ipca.pt)
+ * @brief
+ * @date dezembro 2023
+ * 
+ * @copyright Copyright (c) 2023
+ * 
  */
 
-using System;
-using System.IO;
-using System.Runtime.Serialization.Formatters.Binary;
 using Controllers;
 using Views;
 
