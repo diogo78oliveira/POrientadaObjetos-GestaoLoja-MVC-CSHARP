@@ -13,6 +13,7 @@ using System;
 using System.Collections.Generic;
 using TP_POO.Controllers;
 using TP_POO.Models;
+using System.Globalization;
 
 namespace TP_POO.Views
 {
