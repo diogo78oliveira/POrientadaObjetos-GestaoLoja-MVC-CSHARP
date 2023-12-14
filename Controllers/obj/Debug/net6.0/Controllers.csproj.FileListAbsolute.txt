@@ -1,0 +1,12 @@
+C:\Users\marco\OneDrive\Documentos\GitHub\TP-POO\Controllers\bin\Debug\net6.0\Controllers.deps.json
+C:\Users\marco\OneDrive\Documentos\GitHub\TP-POO\Controllers\bin\Debug\net6.0\Controllers.dll
+C:\Users\marco\OneDrive\Documentos\GitHub\TP-POO\Controllers\bin\Debug\net6.0\Controllers.pdb
+C:\Users\marco\OneDrive\Documentos\GitHub\TP-POO\Controllers\obj\Debug\net6.0\Controllers.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\marco\OneDrive\Documentos\GitHub\TP-POO\Controllers\obj\Debug\net6.0\Controllers.AssemblyInfoInputs.cache
+C:\Users\marco\OneDrive\Documentos\GitHub\TP-POO\Controllers\obj\Debug\net6.0\Controllers.AssemblyInfo.cs
+C:\Users\marco\OneDrive\Documentos\GitHub\TP-POO\Controllers\obj\Debug\net6.0\Controllers.csproj.CoreCompileInputs.cache
+C:\Users\marco\OneDrive\Documentos\GitHub\TP-POO\Controllers\obj\Debug\net6.0\Controllers.sourcelink.json
+C:\Users\marco\OneDrive\Documentos\GitHub\TP-POO\Controllers\obj\Debug\net6.0\Controllers.dll
+C:\Users\marco\OneDrive\Documentos\GitHub\TP-POO\Controllers\obj\Debug\net6.0\refint\Controllers.dll
+C:\Users\marco\OneDrive\Documentos\GitHub\TP-POO\Controllers\obj\Debug\net6.0\Controllers.pdb
+C:\Users\marco\OneDrive\Documentos\GitHub\TP-POO\Controllers\obj\Debug\net6.0\ref\Controllers.dll

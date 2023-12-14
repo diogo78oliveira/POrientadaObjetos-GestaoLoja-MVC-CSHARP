@@ -8,4 +8,13 @@
     <Nullable>enable</Nullable>
   </PropertyGroup>
 
+  <ItemGroup>
+    <Reference Include="Controllers">
+      <HintPath>..\Controllers\bin\Debug\net6.0\Controllers.dll</HintPath>
+    </Reference>
+    <Reference Include="Views">
+      <HintPath>..\Views\bin\Debug\net6.0\Views.dll</HintPath>
+    </Reference>
+  </ItemGroup>
+
 </Project>

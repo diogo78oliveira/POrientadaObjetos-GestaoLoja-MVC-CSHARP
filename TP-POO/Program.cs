@@ -10,8 +10,8 @@
 using System;
 using System.IO;
 using System.Runtime.Serialization.Formatters.Binary;
-using TP_POO.Controllers;
-using TP_POO.Views;
+using Controllers;
+using Views;
 
 class Program
 {
