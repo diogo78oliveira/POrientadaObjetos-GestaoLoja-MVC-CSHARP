@@ -1,0 +1,21 @@
+{
+  "IdCliente": 43245,
+  "Nome": "Simão Humberto",
+  "Morada": "Real, Braga",
+  "Telemovel": "914232432",
+  "DataNascimento": "2002-11-19T00:00:00"
+}
+{
+  "IdCliente": 655435,
+  "Nome": "Dinis Sousa",
+  "Morada": "Sé, Braga",
+  "Telemovel": "94324343",
+  "DataNascimento": "2001-08-31T00:00:00"
+}
+{
+  "IdCliente": 32145543,
+  "Nome": "Luisão",
+  "Morada": "Brasil",
+  "Telemovel": "432432432",
+  "DataNascimento": "1981-02-13T00:00:00"
+}

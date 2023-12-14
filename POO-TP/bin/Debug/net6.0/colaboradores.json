@@ -1,0 +1,14 @@
+{
+  "IdColaborador": 1,
+  "Nome": "Luiz Mozone",
+  "Morada": "Sao Paulo, Brasil",
+  "Telemovel": "94324342",
+  "DataNascimento": "1989-02-10T00:00:00"
+}
+{
+  "IdColaborador": 3,
+  "Nome": "Stephen Hawking",
+  "Morada": "EUA",
+  "Telemovel": "932132143",
+  "DataNascimento": "1981-02-13T00:00:00"
+}

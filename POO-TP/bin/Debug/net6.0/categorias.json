@@ -1,8 +1,32 @@
 {
   "IdCategoria": 1,
-  "Nome": "a"
+  "Nome": "T-Shirt"
 }
 {
   "IdCategoria": 2,
-  "Nome": "b"
+  "Nome": "Calças"
+}
+{
+  "IdCategoria": 3,
+  "Nome": "Calçado"
+}
+{
+  "IdCategoria": 5,
+  "Nome": "Casaco"
+}
+{
+  "IdCategoria": 6,
+  "Nome": "eletrodomésticos"
+}
+{
+  "IdCategoria": 12,
+  "Nome": "produtos de limpesa"
+}
+{
+  "IdCategoria": 15,
+  "Nome": "casa"
+}
+{
+  "IdCategoria": 1904,
+  "Nome": "Camisola de Futebol"
 }

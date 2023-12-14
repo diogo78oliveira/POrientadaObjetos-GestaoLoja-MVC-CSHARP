@@ -1,0 +1,14 @@
+{
+  "IdProduto": 1904,
+  "Nome": "Camisola SL.Benfica",
+  "Descricao": "Camisola Oficial Sl.Benfica 2023/2024 assinada Mantorras",
+  "Preco": 100,
+  "Stock": 8
+}
+{
+  "IdProduto": 12,
+  "Nome": "Sapatilhas Bonitas",
+  "Descricao": "Sapatilhas extremamente bonitas",
+  "Preco": 70,
+  "Stock": 15
+}
