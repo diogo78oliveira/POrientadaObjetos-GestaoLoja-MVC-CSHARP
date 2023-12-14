@@ -1,14 +1,4 @@
-﻿/*
- * @file ClienteController.cs
- * @author Marcos Vasconcelos (a18568@alunos.ipca.pt)
- * @author Diogo Oliveira (a20468@alunos.ipca.pt)
- * @brief
- * @date dezembro 2023
- * 
- * @copyright Copyright (c) 2023
- * 
- */
-
+﻿using Models;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -16,8 +6,6 @@ using System.Runtime.Serialization.Formatters.Binary;
 using System.Text;
 using System.Text.Json;
 using System.Threading.Tasks;
-using Models;
-using System.Text.Json;
 
 namespace Controllers
 {
@@ -49,12 +37,12 @@ namespace Controllers
         /// <returns></returns>
         public bool AdicionarClienteController(Cliente novoCliente)
         {
-            if(clientes.Any(c => c.IdCliente == novoCliente.IdCliente))
+            if (clientes.Any(c => c.IdCliente == novoCliente.IdCliente))
             {
                 return false;
             }
-            
-            if(clientes.Any(c => c.Nome.Equals(novoCliente.Nome, StringComparison.OrdinalIgnoreCase)))
+
+            if (clientes.Any(c => c.Nome.Equals(novoCliente.Nome, StringComparison.OrdinalIgnoreCase)))
             {
                 return false;
             }
@@ -81,9 +69,9 @@ namespace Controllers
         {
             Cliente clienteExistente = EncontrarClientePorId(clienteAtualizado.IdCliente);
 
-            if(clienteExistente != null)
+            if (clienteExistente != null)
             {
-                if(clientes.Any(c => c.IdCliente != clienteAtualizado.IdCliente && c.Nome.Equals(clienteAtualizado.Nome, StringComparison.OrdinalIgnoreCase)))
+                if (clientes.Any(c => c.IdCliente != clienteAtualizado.IdCliente && c.Nome.Equals(clienteAtualizado.Nome, StringComparison.OrdinalIgnoreCase)))
                 {
                     return false;
                 }
@@ -102,7 +90,7 @@ namespace Controllers
         {
             Cliente clienteExistente = EncontrarClientePorId(id);
 
-            if(clienteExistente != null)
+            if (clienteExistente != null)
             {
                 clientes.Remove(clienteExistente);
                 return true;
@@ -119,7 +107,7 @@ namespace Controllers
         {
             try
             {
-                using(Stream stream = File.Open(fileName, FileMode.Create))
+                using (Stream stream = File.Open(fileName, FileMode.Create))
                 {
                     BinaryFormatter bin = new BinaryFormatter();
                     bin.Serialize(stream, clientes);
@@ -168,10 +156,10 @@ namespace Controllers
         {
             try
             {
-                JsonSerializerOptions options = new JsonSerializerOptions 
+                JsonSerializerOptions options = new JsonSerializerOptions
                 {
-                    Encoder = System.Text.Encodings.Web.JavaScriptEncoder.UnsafeRelaxedJsonEscaping, 
-                    WriteIndented = true 
+                    Encoder = System.Text.Encodings.Web.JavaScriptEncoder.UnsafeRelaxedJsonEscaping,
+                    WriteIndented = true
                 };
 
                 using (StreamWriter writer = new StreamWriter(fileName))

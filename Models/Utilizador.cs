@@ -1,15 +1,4 @@
-﻿/*
- * @file Utilizador.cs
- * @author Marcos Vasconcelos (a18568@alunos.ipca.pt)
- * @author Diogo Oliveira (a20468@alunos.ipca.pt)
- * @brief
- * @date dezembro 2023
- * 
- * @copyright Copyright (c) 2023
- * 
- */
-
-using System;
+﻿using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -76,7 +65,7 @@ namespace Models
         public string Telemovel
         {
             get { return telemovel; }
-            set {  telemovel = value; }
+            set { telemovel = value; }
         }
 
         /// <summary>
@@ -85,7 +74,7 @@ namespace Models
         public DateTime DataNascimento
         {
             get { return dataNascimento; }
-            set {  dataNascimento = value; }
+            set { dataNascimento = value; }
         }
 
         #endregion

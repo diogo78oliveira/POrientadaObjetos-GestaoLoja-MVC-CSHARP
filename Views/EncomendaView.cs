@@ -1,19 +1,10 @@
-﻿/*
- * @file EncomendaView.cs
- * @author Marcos Vasconcelos (a18568@alunos.ipca.pt)
- * @author Diogo Oliveira (a20468@alunos.ipca.pt)
- * @brief
- * @date dezembro 2023
- * 
- * @copyright Copyright (c) 2023
- * 
- */
-
+﻿using Controllers;
 using System;
 using System.Collections.Generic;
-using Controllers;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
 using Models;
-using System.Globalization;
 
 namespace Views
 {

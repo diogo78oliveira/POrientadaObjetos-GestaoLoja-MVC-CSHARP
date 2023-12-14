@@ -1,22 +1,8 @@
-﻿/*
- * @file EncomendaModel.cs
- * @author Marcos Vasconcelos (a18568@alunos.ipca.pt)
- * @author Diogo Oliveira (a20468@alunos.ipca.pt)
- * @brief
- * @date dezembro 2023
- * 
- * @copyright Copyright (c) 2023
- * 
- */
-
-using System;
+﻿using System;
 using System.Collections.Generic;
 using System.Linq;
-using System.Net.Http.Headers;
-using System.Runtime.InteropServices;
 using System.Text;
 using System.Threading.Tasks;
-using System.Xml.Schema;
 
 namespace Models
 {
@@ -78,7 +64,7 @@ namespace Models
         /// </summary>
         public DateTime Data
         {
-            get { return data;}
+            get { return data; }
         }
 
         /// <summary>

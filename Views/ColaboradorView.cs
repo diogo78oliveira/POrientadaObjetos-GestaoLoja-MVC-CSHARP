@@ -1,20 +1,9 @@
-﻿/*
- * @file ColaboradorView.cs
- * @author Marcos Vasconcelos (a18568@alunos.ipca.pt)
- * @author Diogo Oliveira (a20468@alunos.ipca.pt)
- * @brief
- * @date dezembro 2023
- * 
- * @copyright Copyright (c) 2023
- * 
- */
-
+﻿using Controllers;
 using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-using Controllers;
 using Models;
 
 namespace Views
@@ -123,7 +112,7 @@ namespace Views
         private void AdicionarColaboradorView()
         {
             Console.WriteLine("Insira o ID do colaborador: ");
-            if(int.TryParse(Console.ReadLine(), out int id))
+            if (int.TryParse(Console.ReadLine(), out int id))
             {
                 Console.WriteLine("Insira o nome do colaborador: ");
                 string nome = Console.ReadLine();
@@ -135,11 +124,11 @@ namespace Views
                 string telemovel = Console.ReadLine();
 
                 Console.WriteLine("Insira a data de nascimento do colaborador (dd/mm/yyy): ");
-                if(DateTime.TryParse(Console.ReadLine(), out DateTime dataNascimento))
+                if (DateTime.TryParse(Console.ReadLine(), out DateTime dataNascimento))
                 {
                     Colaborador novoColaborador = new Colaborador(id, nome, morada, telemovel, dataNascimento);
 
-                    if(colaboradorController.AdicionarColaboradorController(novoColaborador))
+                    if (colaboradorController.AdicionarColaboradorController(novoColaborador))
                     {
                         Console.WriteLine("Colaborador adicionado com sucesso");
                     }
@@ -168,13 +157,13 @@ namespace Views
 
             Console.WriteLine("Lista de colaboradores:\n");
 
-            if(colaboradores.Count == 0)
+            if (colaboradores.Count == 0)
             {
                 Console.WriteLine("Não existe nenhum colaborador");
             }
             else
             {
-                foreach(Colaborador colaborador in colaboradores)
+                foreach (Colaborador colaborador in colaboradores)
                 {
                     Console.WriteLine($"Colaborador #{colaborador.IdColaborador}\nNome: {colaborador.Nome}\nMorada: {colaborador.Morada}\nTelemóvel: {colaborador.Telemovel}\nData Nascimento: {colaborador.DataNascimento.ToString("dd/MM/yyyy")}\n");
                 }
@@ -191,7 +180,7 @@ namespace Views
             {
                 Colaborador colaboradorExistente = colaboradorController.EncontrarColaboradorPorId(id);
 
-                if( colaboradorExistente != null)
+                if (colaboradorExistente != null)
                 {
                     Console.WriteLine("Escolha o que deseja atualizar:");
                     Console.WriteLine("1. Nome do colaborador");
@@ -200,7 +189,7 @@ namespace Views
                     Console.WriteLine("4. Voltar");
                     Console.Write("Escolha uma opção: ");
 
-                    if(int.TryParse(Console.ReadLine(), out int opAtualizarColaborador))
+                    if (int.TryParse(Console.ReadLine(), out int opAtualizarColaborador))
                     {
                         AtualizarCamposColaborador(id, opAtualizarColaborador);
                     }
@@ -229,7 +218,7 @@ namespace Views
         {
             Colaborador colaboradorExistente = colaboradorController.EncontrarColaboradorPorId(id);
 
-            switch(opAtualizarColaborador)
+            switch (opAtualizarColaborador)
             {
                 case 1:
                     Console.Clear();

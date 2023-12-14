@@ -1,14 +1,4 @@
-﻿/*
- * @file ColaboradorController.cs
- * @author Marcos Vasconcelos (a18568@alunos.ipca.pt)
- * @author Diogo Oliveira (a20468@alunos.ipca.pt)
- * @brief
- * @date dezembro 2023
- * 
- * @copyright Copyright (c) 2023
- * 
- */
-
+﻿using Models;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -16,8 +6,6 @@ using System.Runtime.Serialization.Formatters.Binary;
 using System.Text;
 using System.Text.Json;
 using System.Threading.Tasks;
-using Models;
-using System.Text.Json;
 
 namespace Controllers
 {
@@ -49,12 +37,12 @@ namespace Controllers
         /// <returns></returns>
         public bool AdicionarColaboradorController(Colaborador novoColaborador)
         {
-            if(colaboradores.Any(c => c.IdColaborador == novoColaborador.IdColaborador))
+            if (colaboradores.Any(c => c.IdColaborador == novoColaborador.IdColaborador))
             {
                 return false;
             }
 
-            if(colaboradores.Any(c => c.Nome.Equals(novoColaborador.Nome, StringComparison.OrdinalIgnoreCase)))
+            if (colaboradores.Any(c => c.Nome.Equals(novoColaborador.Nome, StringComparison.OrdinalIgnoreCase)))
             {
                 return false;
             }
@@ -72,9 +60,9 @@ namespace Controllers
         {
             Colaborador colaboradorExistente = EncontrarColaboradorPorId(colaboradorAtualizado.IdColaborador);
 
-            if(colaboradorExistente != null)
+            if (colaboradorExistente != null)
             {
-                if(colaboradores.Any(c => c.IdColaborador != colaboradorAtualizado.IdColaborador && c.Nome.Equals(colaboradorAtualizado.Nome, StringComparison.OrdinalIgnoreCase)))
+                if (colaboradores.Any(c => c.IdColaborador != colaboradorAtualizado.IdColaborador && c.Nome.Equals(colaboradorAtualizado.Nome, StringComparison.OrdinalIgnoreCase)))
                 {
                     return false;
                 }
@@ -102,7 +90,7 @@ namespace Controllers
         {
             Colaborador colaboradorExistente = EncontrarColaboradorPorId(id);
 
-            if( colaboradorExistente != null )
+            if (colaboradorExistente != null)
             {
                 colaboradores.Remove(colaboradorExistente);
                 return true;
@@ -119,7 +107,7 @@ namespace Controllers
         {
             try
             {
-                using(Stream stream = File.Open(fileName, FileMode.Create))
+                using (Stream stream = File.Open(fileName, FileMode.Create))
                 {
                     BinaryFormatter bin = new BinaryFormatter();
                     bin.Serialize(stream, colaboradores);
@@ -171,7 +159,7 @@ namespace Controllers
                 JsonSerializerOptions options = new JsonSerializerOptions
                 {
                     Encoder = System.Text.Encodings.Web.JavaScriptEncoder.UnsafeRelaxedJsonEscaping,
-                    WriteIndented = true 
+                    WriteIndented = true
                 };
 
                 using (StreamWriter writer = new StreamWriter(fileName))

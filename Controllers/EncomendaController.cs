@@ -1,22 +1,10 @@
-﻿/*
- * @file EncomendaController.cs
- * @author Marcos Vasconcelos (a18568@alunos.ipca.pt)
- * @author Diogo Oliveira (a20468@alunos.ipca.pt)
- * @brief
- * @date dezembro 2023
- * 
- * @copyright Copyright (c) 2023
- * 
- */
-
-
+﻿using Models;
 using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Runtime.Serialization.Formatters.Binary;
 using System.Text;
 using System.Threading.Tasks;
-using Models;
 
 namespace Controllers
 {
@@ -78,7 +66,7 @@ namespace Controllers
         {
             Encomenda encomendaExistente = EncontraEncomendaPorId(id);
 
-            if(encomendaExistente != null)
+            if (encomendaExistente != null)
             {
                 encomendas.Remove(encomendaExistente);
                 return true;

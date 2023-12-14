@@ -1,25 +1,11 @@
-﻿/*
- * @file CategoriaController.cs
- * @author Marcos Vasconcelos (a18568@alunos.ipca.pt)
- * @author Diogo Oliveira (a20468@alunos.ipca.pt)
- * @brief
- * @date dezembro 2023
- * 
- * @copyright Copyright (c) 2023
- * 
- */
-
-using System;
+﻿using System;
 using System.Collections.Generic;
 using System.Linq;
-using System.Net.Http.Headers;
 using System.Runtime.Serialization.Formatters.Binary;
 using System.Text;
+using System.Text.Json;
 using System.Threading.Tasks;
 using Models;
-using System.IO;
-using System.Text.Json;
-
 
 namespace Controllers
 {
@@ -105,12 +91,12 @@ namespace Controllers
         {
             Categoria categoriaExistente = EncontrarCategoriaPorId(id);
 
-                if (categoriaExistente != null)
-                {
-                    categorias.Remove(categoriaExistente);
-                    return true;
-                }
-                return false;
+            if (categoriaExistente != null)
+            {
+                categorias.Remove(categoriaExistente);
+                return true;
+            }
+            return false;
         }
 
         /// <summary>
@@ -158,7 +144,7 @@ namespace Controllers
                     Console.WriteLine($"Erro: {ex.Message}");
                     return false;
                 }
-            } 
+            }
             return false;
         }
 
@@ -171,10 +157,10 @@ namespace Controllers
         {
             try
             {
-                JsonSerializerOptions options = new JsonSerializerOptions 
+                JsonSerializerOptions options = new JsonSerializerOptions
                 {
-                    Encoder = System.Text.Encodings.Web.JavaScriptEncoder.UnsafeRelaxedJsonEscaping, 
-                    WriteIndented = true 
+                    Encoder = System.Text.Encodings.Web.JavaScriptEncoder.UnsafeRelaxedJsonEscaping,
+                    WriteIndented = true
                 };
 
                 using (StreamWriter writer = new StreamWriter(fileName))

@@ -1,20 +1,9 @@
-﻿/*
- * @file ProdutoView.cs
- * @author Marcos Vasconcelos (a18568@alunos.ipca.pt)
- * @author Diogo Oliveira (a20468@alunos.ipca.pt)
- * @brief
- * @date dezembro 2023
- * 
- * @copyright Copyright (c) 2023
- * 
- */
-
+﻿using Controllers;
 using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-using Controllers;
 using Models;
 
 namespace Views
@@ -138,7 +127,7 @@ namespace Views
                 string descricao = Console.ReadLine();
 
                 Console.WriteLine("Insira o preço do produto: ");
-                if (double.TryParse(Console.ReadLine(), out double preco))  
+                if (double.TryParse(Console.ReadLine(), out double preco))
                 {
                     Console.WriteLine("Insira o stock do produto: ");
                     if (int.TryParse(Console.ReadLine(), out int stock))
@@ -323,7 +312,7 @@ namespace Views
                 case 5:
                     Console.Clear();
                     Console.WriteLine("Insira o ID da nova marca do produto: ");
-                    if(int.TryParse(Console.ReadLine(), out int novoIdMarca))
+                    if (int.TryParse(Console.ReadLine(), out int novoIdMarca))
                     {
                         Marca novaMarca = marcaController.EncontraMarcaPorId(novoIdMarca);
                         if (novaMarca != null)
@@ -344,10 +333,10 @@ namespace Views
                 case 6:
                     Console.Clear();
                     Console.WriteLine("Insira o ID da nova categoria do produto: ");
-                    if(int.TryParse(Console.ReadLine(), out int novoIdCategoria))
+                    if (int.TryParse(Console.ReadLine(), out int novoIdCategoria))
                     {
                         Categoria novaCategoria = categoriaController.EncontrarCategoriaPorId(novoIdCategoria);
-                        if(novaCategoria != null)
+                        if (novaCategoria != null)
                         {
                             produtoExistente.categoria = novaCategoria;
                             Console.WriteLine("Categoria do produto atualizada com sucesso");
@@ -381,7 +370,7 @@ namespace Views
 
             Produto produtoExistente = produtoController.EncontraProdutoPorId(id);
 
-            if(produtoExistente != null)
+            if (produtoExistente != null)
             {
                 produtoController.RemoverProdutoController(id);
                 Console.WriteLine("Produto removido com sucesso");

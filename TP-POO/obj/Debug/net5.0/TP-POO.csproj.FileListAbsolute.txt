@@ -1,5 +1,0 @@
-C:\Users\marco\OneDrive\Documentos\GitHub\TP-POO\TP-POO\obj\Debug\net5.0\TP-POO.GeneratedMSBuildEditorConfig.editorconfig
-C:\Users\marco\OneDrive\Documentos\GitHub\TP-POO\TP-POO\obj\Debug\net5.0\TP-POO.AssemblyInfoInputs.cache
-C:\Users\marco\OneDrive\Documentos\GitHub\TP-POO\TP-POO\obj\Debug\net5.0\TP-POO.AssemblyInfo.cs
-C:\Users\marco\OneDrive\Documentos\GitHub\TP-POO\TP-POO\obj\Debug\net5.0\TP-POO.csproj.CoreCompileInputs.cache
-C:\Users\marco\OneDrive\Documentos\GitHub\TP-POO\TP-POO\obj\Debug\net5.0\TP-POO.sourcelink.json

@@ -1,20 +1,9 @@
-﻿/*
- * @file ClienteView.cs
- * @author Marcos Vasconcelos (a18568@alunos.ipca.pt)
- * @author Diogo Oliveira (a20468@alunos.ipca.pt)
- * @brief
- * @date dezembro 2023
- * 
- * @copyright Copyright (c) 2023
- * 
- */
-
+﻿using Controllers;
 using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-using Controllers;
 using Models;
 
 namespace Views
@@ -88,7 +77,7 @@ namespace Views
                     clienteController.GuardarClientesBin("clientes.bin");
                     clienteController.GuardarClientesJSON("clientes.json");
                     break;
-                case 2: 
+                case 2:
                     Console.Clear();
                     VerClientesView();
                     break;
@@ -123,7 +112,7 @@ namespace Views
         private void AdicionarClienteView()
         {
             Console.WriteLine("Insira o ID do cliente: ");
-            if(int.TryParse(Console.ReadLine(), out int id))
+            if (int.TryParse(Console.ReadLine(), out int id))
             {
                 Console.WriteLine("Insira o nome do cliente: ");
                 string nome = Console.ReadLine();
@@ -135,7 +124,7 @@ namespace Views
                 string telemovel = Console.ReadLine();
 
                 Console.WriteLine("Insira a data de nascimento do cliente (dd/mm/yyyy): ");
-                if(DateTime.TryParse(Console.ReadLine(), out  DateTime dataNascimento))
+                if (DateTime.TryParse(Console.ReadLine(), out DateTime dataNascimento))
                 {
                     Cliente novoCliente = new Cliente(id, nome, morada, telemovel, dataNascimento);
 
@@ -168,13 +157,13 @@ namespace Views
 
             Console.WriteLine("Lista de clientes:\n");
 
-            if(clientes.Count == 0)
+            if (clientes.Count == 0)
             {
                 Console.WriteLine("Não existe nenhum cliente");
             }
             else
             {
-                foreach(Cliente cliente in clientes)
+                foreach (Cliente cliente in clientes)
                 {
                     Console.WriteLine($"Cliente #{cliente.IdCliente}\nNome: {cliente.Nome}\nMorada: {cliente.Morada}\nTelemóvel: {cliente.Telemovel}\nData Nascimento: {cliente.DataNascimento.ToString("dd/MM/yyyy")}\n");
                 }
@@ -188,11 +177,11 @@ namespace Views
         private void AtualizarClienteView()
         {
             Console.WriteLine("Insira o ID do cliente para atualizar: ");
-            if(int.TryParse(Console.ReadLine(), out int id))
+            if (int.TryParse(Console.ReadLine(), out int id))
             {
                 Cliente clienteExistente = clienteController.EncontrarClientePorId(id);
 
-                if(clienteExistente != null)
+                if (clienteExistente != null)
                 {
                     Console.WriteLine("Escolha o que deseja atualizar:");
                     Console.WriteLine("1. Nome do cliente");
@@ -201,7 +190,7 @@ namespace Views
                     Console.WriteLine("4. Voltar");
                     Console.Write("Escolha uma opção: ");
 
-                    if(int.TryParse(Console.ReadLine(), out int opAtualizarCliente))
+                    if (int.TryParse(Console.ReadLine(), out int opAtualizarCliente))
                     {
                         AtualizarCamposCliente(id, opAtualizarCliente);
                     }

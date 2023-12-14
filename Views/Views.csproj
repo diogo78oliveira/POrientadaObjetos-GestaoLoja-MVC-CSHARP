@@ -8,10 +8,13 @@
 
   <ItemGroup>
     <Reference Include="Controllers">
-      <HintPath>..\Controllers\obj\Debug\net6.0\Controllers.dll</HintPath>
+      <HintPath>..\Controllers\bin\Debug\net6.0\Controllers.dll</HintPath>
     </Reference>
     <Reference Include="Models">
-      <HintPath>..\Models\bin\Debug\net6.0\Models.dll</HintPath>
+      <HintPath>..\Controllers\bin\Debug\net6.0\Models.dll</HintPath>
+    </Reference>
+    <Reference Include="Views">
+      <HintPath>bin\Debug\net6.0\Views.dll</HintPath>
     </Reference>
   </ItemGroup>
 
