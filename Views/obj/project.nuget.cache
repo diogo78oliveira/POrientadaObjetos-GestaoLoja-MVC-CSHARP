@@ -1,12 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "+5GfWIZ8C5InhMIr7gkBewKsTpaSBNnRj21mINJWccZBBRCmKuMya11xBvN8hdbqP96ORrIPNljwZ55k4Mkdqg==",
+  "dgSpecHash": "yKGN8GWXiUQ+WS1VkDMIKncfI0YYQV4z+7QsiNAWJh+cmeQDpEa12vguquCasQuB052DorROPfZoCQ08wBI7pA==",
   "success": true,
-  "projectFilePath": "C:\\Users\\diogo\\Documents\\GitHub\\TP-POO\\Views\\Views.csproj",
-  "expectedPackageFiles": [
-    "C:\\Users\\diogo\\.nuget\\packages\\microsoft.windowsdesktop.app.ref\\6.0.25\\microsoft.windowsdesktop.app.ref.6.0.25.nupkg.sha512",
-    "C:\\Users\\diogo\\.nuget\\packages\\microsoft.netcore.app.ref\\6.0.25\\microsoft.netcore.app.ref.6.0.25.nupkg.sha512",
-    "C:\\Users\\diogo\\.nuget\\packages\\microsoft.aspnetcore.app.ref\\6.0.25\\microsoft.aspnetcore.app.ref.6.0.25.nupkg.sha512"
-  ],
+  "projectFilePath": "C:\\Users\\marco\\OneDrive\\Documentos\\GitHub\\TP-POO\\Views\\Views.csproj",
+  "expectedPackageFiles": [],
   "logs": []
 }
