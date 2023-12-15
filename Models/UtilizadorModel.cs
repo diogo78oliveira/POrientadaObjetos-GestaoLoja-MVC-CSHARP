@@ -2,7 +2,7 @@
  * @file UtilizadorModel.cs
  * @author Marcos Vasconcelos (a18568@alunos.ipca.pt)
  * @author Diogo Oliveira (a20468@alunos.ipca.pt)
- * @brief
+ * @brief Classe UtilizadorModel para representar um utilizador com propriedades para o nome, morada, telemóvel e data de nascimento
  * @date dezembro 2023
  * 
  * @copyright Copyright (c) 2023

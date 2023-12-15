@@ -2,7 +2,7 @@
  * @file EncomendaController.cs
  * @author Marcos Vasconcelos (a18568@alunos.ipca.pt)
  * @author Diogo Oliveira (a20468@alunos.ipca.pt)
- * @brief
+ * @brief Classe EncomendaController para gerir encomendas com métodos para adicionar, listar e remover, para além de serialização em binário
  * @date dezembro 2023
  * 
  * @copyright Copyright (c) 2023

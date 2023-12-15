@@ -2,7 +2,7 @@
  * @file EncomendaModel.cs
  * @author Marcos Vasconcelos (a18568@alunos.ipca.pt)
  * @author Diogo Oliveira (a20468@alunos.ipca.pt)
- * @brief
+ * @brief Classe EncomendaModel para representar uma encomenda com propriedades para o identificador, cliente e fornecedor, produtos e quantidades, data, valor total e total de encomendas
  * @date dezembro 2023
  * 
  * @copyright Copyright (c) 2023

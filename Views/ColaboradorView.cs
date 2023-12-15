@@ -2,7 +2,7 @@
  * @file ColaboradorView.cs
  * @author Marcos Vasconcelos (a18568@alunos.ipca.pt)
  * @author Diogo Oliveira (a20468@alunos.ipca.pt)
- * @brief
+ * @brief Classe ColaboradorView para visualizar o menu que permite adicionar, listar, atualizar e remover colaboradores, ao utilizar o controller associado
  * @date dezembro 2023
  * 
  * @copyright Copyright (c) 2023

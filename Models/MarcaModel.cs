@@ -2,7 +2,7 @@
  * @file MarcaModel.cs
  * @author Marcos Vasconcelos (a18568@alunos.ipca.pt)
  * @author Diogo Oliveira (a20468@alunos.ipca.pt)
- * @brief
+ * @brief Classe MarcaModel para representar uma marca com propriedades para o identificador e o nome
  * @date dezembro 2023
  * 
  * @copyright Copyright (c) 2023
