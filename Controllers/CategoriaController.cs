@@ -11,12 +11,13 @@
 
 using System.Runtime.Serialization.Formatters.Binary;
 using System.Text.Json;
+using Controllers.Interfaces;
 using Models;
 
 namespace Controllers
 {
     [Serializable]
-    public class CategoriaController
+    public class CategoriaController : ICategoriaSerializer
     {
         #region Attributes
 

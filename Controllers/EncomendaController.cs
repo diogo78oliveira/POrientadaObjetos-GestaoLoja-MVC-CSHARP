@@ -9,12 +9,13 @@
  * 
  */
 
+using Controllers.Interfaces;
 using Models;
 using System.Runtime.Serialization.Formatters.Binary;
 
 namespace Controllers
 {
-    public class EncomendaController
+    public class EncomendaController : IEncomendaSerializer
     {
         #region Attributes
 
