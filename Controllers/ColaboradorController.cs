@@ -12,11 +12,12 @@
 using Models;
 using System.Runtime.Serialization.Formatters.Binary;
 using System.Text.Json;
+using Interfaces;
 
 namespace Controllers
 {
     [Serializable]
-    public class ColaboradorController
+    public class ColaboradorController : IColaboradorSerializer
     {
         #region Attributes
 

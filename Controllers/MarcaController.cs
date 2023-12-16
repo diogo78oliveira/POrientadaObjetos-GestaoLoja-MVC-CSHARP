@@ -12,11 +12,12 @@
 using Models;
 using System.Runtime.Serialization.Formatters.Binary;
 using System.Text.Json;
+using Interfaces;
 
 namespace Controllers
 {
     [Serializable]
-    public class MarcaController
+    public class MarcaController : IMarcaSerializer
     {
         #region Attributes
 
