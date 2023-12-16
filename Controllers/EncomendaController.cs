@@ -11,11 +11,10 @@
 
 using Models;
 using System.Runtime.Serialization.Formatters.Binary;
-using Interfaces;
 
 namespace Controllers
 {
-    public class EncomendaController : IEncomendaSerializer
+    public class EncomendaController
     {
         #region Attributes
 

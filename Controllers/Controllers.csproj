@@ -7,9 +7,6 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <Reference Include="Interfaces">
-      <HintPath>..\Interfaces\bin\Debug\net6.0\Interfaces.dll</HintPath>
-    </Reference>
     <Reference Include="Models">
       <HintPath>..\Models\bin\Debug\net6.0\Models.dll</HintPath>
     </Reference>
