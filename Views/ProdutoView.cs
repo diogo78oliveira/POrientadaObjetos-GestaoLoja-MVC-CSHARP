@@ -123,7 +123,7 @@ namespace Views
         /// </summary>
         private void AdicionarProdutoView()
         {
-            Console.WriteLine("Insira o ID do ashaaaaaaaaaaaaaashhas: ");
+            Console.WriteLine("Insira o ID do produto: ");
             if (int.TryParse(Console.ReadLine(), out int id))
             {
                 Console.WriteLine("Insira o nome do produto: ");
