@@ -1,0 +1,94 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<ClassDiagram MajorVersion="1" MinorVersion="1">
+  <Class Name="Controllers.CategoriaController">
+    <Position X="0.5" Y="2.25" Width="2.25" />
+    <TypeIdentifier>
+      <HashCode>gAAgAAABAQAAAAAABACAAAAQIAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>CategoriaController.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" />
+  </Class>
+  <Class Name="Controllers.ClienteController">
+    <Position X="3.25" Y="2.25" Width="2.25" />
+    <TypeIdentifier>
+      <HashCode>QAAAAAAAAAAgAQAAgAAAAAAAAACAAAAAAIAAAAAoQAA=</HashCode>
+      <FileName>ClienteController.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" />
+  </Class>
+  <Class Name="Controllers.ColaboradorController">
+    <Position X="3.25" Y="7.75" Width="2.5" />
+    <TypeIdentifier>
+      <HashCode>AAABBEACAAAAggAQAAAAAAAAAAACAAAAAAAAAAAAAgA=</HashCode>
+      <FileName>ColaboradorController.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" />
+  </Class>
+  <Class Name="Controllers.EncomendaController">
+    <Position X="0.5" Y="7.75" Width="2.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAQAAAAAAAAAAAAAAKACAAAAAAAIABAAAQA=</HashCode>
+      <FileName>EncomendaController.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" />
+  </Class>
+  <Class Name="Controllers.MarcaController">
+    <Position X="6" Y="2.25" Width="2" />
+    <TypeIdentifier>
+      <HashCode>YAAAAAAAAAAQAAAAAAAAAEAAAAEAAABAAAAAAAACAEA=</HashCode>
+      <FileName>MarcaController.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" />
+  </Class>
+  <Class Name="Controllers.ProdutoController">
+    <Position X="6" Y="7.75" Width="2.25" />
+    <TypeIdentifier>
+      <HashCode>QAAAAIAAAAAAAAgAAAAAAAABAACAAACAgAAAAAACCAA=</HashCode>
+      <FileName>ProdutoController.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" />
+  </Class>
+  <Interface Name="Controllers.Interfaces.IProdutoSerializer">
+    <Position X="6" Y="6" Width="1.75" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAACAgAAAAAACAAA=</HashCode>
+      <FileName>Interfaces\IProdutoSerializer.cs</FileName>
+    </TypeIdentifier>
+  </Interface>
+  <Interface Name="Controllers.Interfaces.IMarcaSerializer">
+    <Position X="6" Y="0.5" Width="1.75" />
+    <TypeIdentifier>
+      <HashCode>IAAAAAAAAAAAAAAAAAAAAAAAAAEAAAAAAAAAAAAAAEA=</HashCode>
+      <FileName>Interfaces\IMarcaSerializer.cs</FileName>
+    </TypeIdentifier>
+  </Interface>
+  <Interface Name="Controllers.Interfaces.IEncomendaSerializer">
+    <Position X="0.5" Y="6" Width="2" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAIAAAAAAAAAIAAAAAAA=</HashCode>
+      <FileName>Interfaces\IEncomendaSerializer.cs</FileName>
+    </TypeIdentifier>
+  </Interface>
+  <Interface Name="Controllers.Interfaces.ICategoriaSerializer">
+    <Position X="0.5" Y="0.5" Width="1.75" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAABAAAAAAAABACAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Interfaces\ICategoriaSerializer.cs</FileName>
+    </TypeIdentifier>
+  </Interface>
+  <Interface Name="Controllers.Interfaces.IClienteSerializer">
+    <Position X="3.25" Y="0.5" Width="1.75" />
+    <TypeIdentifier>
+      <HashCode>QAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAIAAAAAgAAA=</HashCode>
+      <FileName>Interfaces\IClienteSerializer.cs</FileName>
+    </TypeIdentifier>
+  </Interface>
+  <Interface Name="Controllers.Interfaces.IColaboradorSerializer">
+    <Position X="3.25" Y="6" Width="2" />
+    <TypeIdentifier>
+      <HashCode>AAAABAAAAAAAAgAAAAAAAAAAAAACAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Interfaces\IColaboradorSerializer.cs</FileName>
+    </TypeIdentifier>
+  </Interface>
+  <Font Name="Segoe UI" Size="9" />
+</ClassDiagram>

@@ -1,0 +1,46 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<ClassDiagram MajorVersion="1" MinorVersion="1">
+  <Class Name="Views.CategoriaView">
+    <Position X="0.5" Y="0.5" Width="2" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAABAAAACAAACIAAAAAAAAAAAAAAAwAAAAAAI=</HashCode>
+      <FileName>CategoriaView.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Views.ClienteView">
+    <Position X="3" Y="0.5" Width="2" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAoAAAAAQAAAAIAIAAAAAAEAAAAAAAAAgAAQAAA=</HashCode>
+      <FileName>ClienteView.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Views.ColaboradorView">
+    <Position X="5.5" Y="0.5" Width="2.25" />
+    <TypeIdentifier>
+      <HashCode>AAAAAACAAAAACAAAAAAYAAAIAABAAAAAgAAAAAAAAAA=</HashCode>
+      <FileName>ColaboradorView.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Views.EncomendaView">
+    <Position X="0.5" Y="3.75" Width="2.25" />
+    <TypeIdentifier>
+      <HashCode>AACAAAAAAAAAAAQCgAAIgACAAAFAAAAAAAAAAAAAAgA=</HashCode>
+      <FileName>EncomendaView.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Views.MarcaView">
+    <Position X="3" Y="3.75" Width="1.75" />
+    <TypeIdentifier>
+      <HashCode>AAAgAAAAAAAACAAAAAAIAAAEgAAAAAAAAEAAAAIAAAA=</HashCode>
+      <FileName>MarcaView.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Views.ProdutoView">
+    <Position X="5.5" Y="3.75" Width="2" />
+    <TypeIdentifier>
+      <HashCode>BAQAIAAAAAAAAACAAAAIAAGAAAAAAAAAAQAAAAIAAAA=</HashCode>
+      <FileName>ProdutoView.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Font Name="Segoe UI" Size="9" />
+</ClassDiagram>

@@ -49,7 +49,7 @@ namespace Models
             colaborador = col;
             data = DateTime.Now;
             total = 0;
-            SalvarTotalEncomendas();
+            GuardarTotalEncomendas();
         }
 
         #endregion
@@ -134,7 +134,7 @@ namespace Models
         /// Método para guardar o total de encomendas num ficheiro de texto
         /// </summary>
         /// <returns></returns>
-        private static bool SalvarTotalEncomendas()
+        private static bool GuardarTotalEncomendas()
         {
             File.WriteAllText("totalEncomendas.txt", totalEncomendas.ToString());
             return true;
